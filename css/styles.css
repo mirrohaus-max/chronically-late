@@ -24,7 +24,7 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: radial-gradient(circle at top, #15141a 0, #050507 55%);
+  background: radial-gradient(circle at top, #000000 0, #050507 55%);
   color: var(--text);
   font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   -webkit-font-smoothing: antialiased;
