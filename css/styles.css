@@ -298,7 +298,7 @@ a {
 .brand-card {
   padding: 18px 18px 20px;
   border-radius: var(--radius-lg);
-  background: rgba(8, 8, 12, 0.96);
+  background: rgba(0, 0, 0, 0.12);
   border: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
@@ -357,7 +357,7 @@ a {
 .work-card {
   padding: 18px 18px 18px;
   border-radius: var(--radius-lg);
-  background: rgba(10, 10, 16, 0.96);
+  background: rgba(0, 0, 0, 0.12);
   border: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
@@ -427,7 +427,7 @@ a {
   padding: 18px 18px 18px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border-subtle);
-  background: rgba(10, 10, 16, 0.96);
+  background: rgba(0, 0, 0, 0.12);
 }
 
 .founder-card .founder-tag {
@@ -482,7 +482,7 @@ a {
 .contact-card {
   padding: 18px 18px 18px;
   border-radius: var(--radius-lg);
-  background: rgba(10, 10, 16, 0.96);
+  background: rgba(0, 0, 0, 0.12);
   border: 1px solid var(--border-subtle);
 }
 
