@@ -91,14 +91,14 @@ a {
 /* Actual logo image in header */
 .logo-image {
   display: block;
-  height: 26px;
+  height: 28px;
   width: auto;
 }
 
 /* Slightly larger logo on bigger screens */
 @media (min-width: 900px) {
   .logo-image {
-    height: 30px;
+    height: 32px;
   }
 }
 
