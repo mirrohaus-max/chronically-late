@@ -88,6 +88,20 @@ a {
   color: var(--muted);
 }
 
+/* Actual logo image in header */
+.logo-image {
+  display: block;
+  height: 26px;
+  width: auto;
+}
+
+/* Slightly larger logo on bigger screens */
+@media (min-width: 900px) {
+  .logo-image {
+    height: 30px;
+  }
+}
+
 .main-nav {
   display: flex;
   align-items: center;
