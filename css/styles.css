@@ -868,3 +868,18 @@ main a:hover,
 .btn-primary:visited {
   color: #ffffff !important;
 }
+/* Header CTA pill – match main primary button */
+.site-nav .header-cta {
+  background: var(--mh-red);
+  border-color: var(--mh-red);
+  color: #ffffff !important;
+  border-radius: 999px;
+  padding: 0.55rem 1.6rem;
+  box-shadow: 0 0 24px rgba(221, 0, 0, 0.45);
+}
+
+.site-nav .header-cta:hover {
+  background: #ff4040;
+  border-color: #ff4040;
+  box-shadow: 0 0 32px rgba(221, 0, 0, 0.7);
+}
