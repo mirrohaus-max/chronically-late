@@ -817,3 +817,48 @@ a {
   position: relative;
   z-index: 1;
 }
+/* === MIRROHAUS ACCENT COLOR OVERRIDES === */
+:root {
+  --mh-red: #DD0000;
+}
+
+/* General text links */
+main a,
+.section a {
+  color: var(--mh-red);
+}
+
+main a:hover,
+.section a:hover {
+  color: #ff4040;
+}
+
+/* Primary buttons (like Book Consultation) */
+.btn-primary {
+  background: var(--mh-red);
+  border-color: var(--mh-red);
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background: #ff4040;
+  border-color: #ff4040;
+  box-shadow: 0 0 24px rgba(221, 0, 0, 0.45);
+}
+
+/* Outline / ghost-style buttons */
+.btn-outline,
+.btn-ghost,
+.hero-actions .btn-ghost {
+  background: transparent;
+  border-color: var(--mh-red);
+  color: var(--mh-red);
+}
+
+.btn-outline:hover,
+.btn-ghost:hover,
+.hero-actions .btn-ghost:hover {
+  background: rgba(221, 0, 0, 0.12);
+  color: #ffffff;
+  border-color: var(--mh-red);
+}
