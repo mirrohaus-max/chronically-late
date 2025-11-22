@@ -147,8 +147,8 @@ a {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at top left, rgba(200, 50, 50, 0.28), transparent 55%),
-    radial-gradient(circle at bottom right, rgba(200, 50, 50, 0.18), transparent 60%);
+    radial-gradient(circle at top left, rgba(3, 6, 11, 0.28), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(3, 6, 11, 0.18), transparent 60%);
   opacity: 0.66;
   pointer-events: none;
 }
@@ -304,7 +304,7 @@ a {
 /* Brands */
 
 .section-brands {
-  background: radial-gradient(circle at top, rgba(200, 50, 50, 0.18), transparent 55%),
+  background: radial-gradient(circle at top, rgba(3, 6, 11, 0.18), transparent 55%),
     linear-gradient(to bottom, #050507, #090910);
 }
 
@@ -417,7 +417,7 @@ a {
 /* Founder */
 
 .section-founder {
-  background: radial-gradient(circle at top right, rgba(200, 50, 50, 0.15), transparent 55%),
+  background: radial-gradient(circle at top right, rgba(3, 6, 11, 0.15), transparent 55%),
     linear-gradient(to bottom, #050507, #050507);
 }
 
@@ -482,7 +482,7 @@ a {
 /* Contact */
 
 .section-contact {
-  background: radial-gradient(circle at bottom, rgba(200, 50, 50, 0.24), transparent 58%),
+  background: radial-gradient(circle at bottom, rgba(3, 6, 11, 0.24), transparent 58%),
     linear-gradient(to bottom, #050507, #050507);
 }
 
