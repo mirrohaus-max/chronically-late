@@ -788,7 +788,8 @@ a {
   width: 60%;
   height: auto;
 }
+
 /* Thin red dividers between sections */
 .section + .section {
-  border-top: 1px solid rgba(255, 0, 0, 0.35); /* subtle red line */
+  border-top: 1px solid #DD0000;  /* your red */
 }
