@@ -793,3 +793,27 @@ a {
 .section + .section {
   border-top: 1px solid #DD0000;  /* your red */
 }
+/* Watermark background on all sections under hero */
+.section:not(.hero) {
+  position: relative;
+  overflow: hidden;
+}
+
+.section:not(.hero)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/mirrohaus-bg-watermark.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 480px auto; /* bump up/down for size */
+  opacity: 0.04;               /* 0.04–0.08 is a good range */
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Make sure real content sits above the watermark */
+.section-inner {
+  position: relative;
+  z-index: 1;
+}
