@@ -287,7 +287,7 @@ a {
 .pill {
   padding: 18px 18px 18px;
   border-radius: var(--radius-lg);
-  background: radial-gradient(circle at top left, rgba(200, 50, 50, 0.16), transparent 55%),
+  background: radial-gradient(circle at top left, rgba(3, 6, 11, 0.16), transparent 55%),
     rgba(10, 10, 16, 0.96);
   border: 1px solid var(--border-subtle);
 }
