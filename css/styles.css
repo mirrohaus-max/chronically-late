@@ -777,3 +777,14 @@ a {
     align-items: flex-start;
   }
 }
+
+.contact-logo {
+  text-align: center;
+  padding: 40px 0 10px;
+}
+
+.contact-logo img {
+  max-width: 260px;
+  width: 60%;
+  height: auto;
+}
