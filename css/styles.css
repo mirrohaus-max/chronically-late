@@ -862,3 +862,9 @@ main a:hover,
   color: #ffffff;
   border-color: var(--mh-red);
 }
+/* Force white text on primary buttons */
+.btn-primary,
+.btn-primary:link,
+.btn-primary:visited {
+  color: #ffffff !important;
+}
