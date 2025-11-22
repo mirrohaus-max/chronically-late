@@ -883,3 +883,35 @@ main a:hover,
   border-color: #ff4040;
   box-shadow: 0 0 32px rgba(221, 0, 0, 0.7);
 }
+/* Header nav links – clean hover, no pill bg */
+.site-nav a {
+  position: relative;
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s ease-out;
+}
+
+/* underline animation */
+.site-nav a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: var(--mh-red);
+  transition: width 0.2s ease-out;
+}
+
+/* Don't add underline decoration to the CTA pill */
+.site-nav .header-cta::before {
+  content: none;
+}
+
+.site-nav a:hover {
+  color: var(--mh-red);
+}
+
+.site-nav a:hover::before {
+  width: 100%;
+}
