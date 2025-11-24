@@ -938,7 +938,7 @@ main a:hover,
   border-color: var(--mh-red);
   color: #ffffff !important;
   border-radius: 999px;
-  padding: 0.55rem 1.6rem;
+  padding: 0.7rem 2.1rem;
   box-shadow: 0 0 24px rgba(221, 0, 0, 0.45);
 }
 
