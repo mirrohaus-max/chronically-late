@@ -303,11 +303,31 @@ a {
 
 /* Brands */
 
+/* Brands */
 .section-brands {
+  position: relative; /* <-- add this line */
   background: radial-gradient(circle at top, rgba(3, 6, 11, 0.18), transparent 55%),
-    linear-gradient(to bottom, #050507, #090910);
+    linear-gradient(to bottom, #050607, #090910);
+}
+/* Brands watermark */
+.section-brands::before {
+  content: "";
+  position: absolute;
+  left: -140px;      /* nudge further in/out as you like */
+  bottom: -160px;    /* move up/down as needed */
+  width: 520px;
+  height: 520px;
+  background: url("../assets/mirrohaus-bg-watermark-transparent.png") no-repeat center/contain;
+  opacity: 0.08;     /* control strength of watermark */
+  pointer-events: none;
+  z-index: 0;
 }
 
+/* keep the actual content above the watermark */
+.section-brands .section-inner {
+  position: relative;
+  z-index: 1;
+}
 .brand-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -482,8 +502,26 @@ a {
 /* Contact */
 
 .section-contact {
-  background: radial-gradient(circle at bottom, rgba(3, 6, 11, 0.24), transparent 58%),
-    linear-gradient(to bottom, #050507, #050507);
+  position: relative; /* <-- add */
+  /* existing padding/background/etc stays as-is */
+}
+/* Contact/footer watermark */
+.section-contact::before {
+  content: "";
+  position: absolute;
+  left: -160px;      /* tuck into bottom-left corner */
+  bottom: -220px;
+  width: 620px;
+  height: 620px;
+  background: url("../assets/mirrohaus-bg-watermark-transparent.png") no-repeat center/contain;
+  opacity: 0.08;     /* match or tweak vs brands */
+  pointer-events: none;
+  z-index: 0;
+}
+
+.section-contact .section-inner {
+  position: relative;
+  z-index: 1;
 }
 
 .contact-layout {
