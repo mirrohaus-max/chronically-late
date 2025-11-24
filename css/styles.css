@@ -148,7 +148,7 @@ a {
 
 /* Book Consultation = pill button */
 .nav-cta {
-  padding: 8px 18px;
+  padding: 8px 26px;
   background: var(--accent);
   color: #ffffff;
   border-radius: var(--radius-pill);  /* 👈 add this line */
