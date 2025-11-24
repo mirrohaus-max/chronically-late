@@ -148,10 +148,11 @@ a {
 
 /* Book Consultation = pill button */
 .nav-cta {
-  padding: 8px 26px;
+  padding: 9px 26px;          /* more breathing room left/right */
   background: var(--accent);
   color: #ffffff;
-  border-radius: var(--radius-pill);  /* 👈 add this line */
+  border-radius: 999px;       /* make sure it’s a true pill */
+  font-size: 0.85rem;         /* keeps it compact but readable */
   box-shadow: 0 14px 35px rgba(0, 0, 0, 0.45);
 }
 
