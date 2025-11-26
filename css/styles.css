@@ -11,6 +11,7 @@
   --border-subtle: rgba(255, 255, 255, 0.08);
   --radius-lg: 18px;
   --radius-pill: 999px;
+  --margin-pill: 0.25rem;
   --max-width: 1120px;
 }
 
