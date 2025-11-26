@@ -987,3 +987,34 @@ main a:hover,
   line-height: 1.2;
   font-weight: 600;
 }
+
+/* Contact card text styling */
+.contact-card {
+  color: #f5f5f7; /* soft white for default text */
+}
+
+/* Each line: Email / Phone / Web */
+.contact-card .contact-line {
+  font-size: 0.95rem;
+  margin-bottom: 0.35rem;
+}
+
+/* The labels: "Email", "Phone", "Web" */
+.contact-card .contact-line span {
+  display: inline-block;
+  min-width: 3.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: #8b8b8f; /* subtle grey label, not screaming red */
+}
+
+/* The actual values / links */
+.contact-card .contact-line a {
+  color: #ffffff;           /* white link text */
+  text-decoration: none;
+}
+
+.contact-card .contact-line a:hover {
+  color: #dd0000;           /* brand red only on hover */
+}
