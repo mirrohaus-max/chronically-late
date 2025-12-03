@@ -331,11 +331,8 @@ a {
 /* Brands */
 
 /* Brands */
-.section-brands {
-  position: relative;
-  background:
-    url("../assets/mirrohaus-brands-bg.png") center center / cover no-repeat,
-    #03060B; /* fallback solid color behind the image */
+.section-brands p {
+  max-width: 640px;
 }
 
 /* keep the actual content above the watermark */
@@ -391,9 +388,8 @@ a {
 }
 
 /* Work */
-
-.section-work {
-  background: linear-gradient(to bottom, #050507, #050507);
+.section-work p {
+  max-width: 640px;
 }
 
 .work-grid {
@@ -450,11 +446,8 @@ a {
 }
 
 /* Founder */
-.section-founder {
-  position: relative;          /* NEW */
-  overflow: hidden;            /* NEW – keeps the ring clipped to this section */
-  background: radial-gradient(circle at top right, rgba(3, 6, 11, 0.18), transparent 55%),
-              linear-gradient(to bottom, #050607, #050607);
+.section-founder p {
+  max-width: 640px;
 }
 
 .founder-layout {
