@@ -6,7 +6,7 @@
   --bg-soft: #090F1A;     /* softer panels if needed */
   --text: #f7f7f7;
   --muted: #a4a8be;
-  --accent: #c83232;      /* gets overridden by --mh-red below if present */
+  --accent: #DD0000;      /* gets overridden by --mh-red below if present */
   --accent-soft: rgba(3, 6, 11, 0.14);
   --border-subtle: rgba(255, 255, 255, 0.08);
   --radius-lg: 18px;
