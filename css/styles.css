@@ -450,10 +450,11 @@ a {
 }
 
 /* Founder */
-
 .section-founder {
-  background: radial-gradient(circle at top right, rgba(3, 6, 11, 0.15), transparent 55%),
-    linear-gradient(to bottom, #050507, #050507);
+  position: relative;          /* NEW */
+  overflow: hidden;            /* NEW – keeps the ring clipped to this section */
+  background: radial-gradient(circle at top right, rgba(3, 6, 11, 0.18), transparent 55%),
+              linear-gradient(to bottom, #050607, #050607);
 }
 
 .founder-layout {
