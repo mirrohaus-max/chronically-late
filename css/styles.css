@@ -26,7 +26,7 @@ body {
   margin: 0;
   padding: 0;
   background:
-    url("../assets/tex-noise-dark-512.png"),
+    url("../assets/mirrohaus-bg-watermark-transparent.png"),
     var(--bg);
   background-size: 512px 512px, auto;
   background-repeat: repeat, no-repeat;
