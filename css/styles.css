@@ -1,17 +1,16 @@
 /* Global styles */
 
 :root {
-  --bg: #050507;
-  --bg-elevated: #101014;
-  --bg-soft: #181821;
+  --bg: #03060B;          /* main page background */
+  --bg-elevated: #050812; /* cards / sections sitting above bg */
+  --bg-soft: #090F1A;     /* softer panels if needed */
   --text: #f7f7f7;
-  --muted: #a0a0b0;
-  --accent: #dd0000;
-  --accent-soft: rgba(221, 0, 0, 0.16);
+  --muted: #a4a8be;
+  --accent: #c83232;      /* gets overridden by --mh-red below if present */
+  --accent-soft: rgba(3, 6, 11, 0.14);
   --border-subtle: rgba(255, 255, 255, 0.08);
   --radius-lg: 18px;
   --radius-pill: 999px;
-  --margin-pill: 0.25rem;
   --max-width: 1120px;
 }
 
