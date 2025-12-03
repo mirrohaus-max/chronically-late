@@ -984,7 +984,7 @@ main a:hover,
 
 /* Header CTA pill – give it room to breathe */
 .nav-cta {
-  padding: 0.6rem 2.1rem;   /* more vertical + horizontal space */
+  padding: 0.8rem 2.4rem;   /* more vertical + horizontal space */
   margin: 0.25em;
   border-radius: 999px;     /* keep the pill shape nice and round */
   line-height: 1.2;
