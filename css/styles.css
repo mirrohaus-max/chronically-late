@@ -337,19 +337,6 @@ a {
     url("../assets/mirrohaus-brands-bg.png") center center / cover no-repeat,
     #03060B; /* fallback solid color behind the image */
 }
-/* Brands watermark */
-.section-brands::before {
-  content: "";
-  position: absolute;
-  left: -140px;      /* nudge further in/out as you like */
-  bottom: -160px;    /* move up/down as needed */
-  width: 520px;
-  height: 520px;
-  background: url("../assets/mirrohaus-bg-watermark-transparent.png") no-repeat center/contain;
-  opacity: 0.08;     /* control strength of watermark */
-  pointer-events: none;
-  z-index: 0;
-}
 
 /* keep the actual content above the watermark */
 .section-brands .section-inner {
