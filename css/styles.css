@@ -27,7 +27,7 @@ body {
   background:
     url("../assets/mirrohaus-bg-watermark-transparent.png"),
     var(--bg);
-  background-size: 512px 512px, auto;
+  background-size: 1920px 1080px, auto;
   background-repeat: repeat, no-repeat;
   background-attachment: fixed;
   color: var(--text);
