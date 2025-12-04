@@ -1343,7 +1343,7 @@ main a:hover,
 /* Desktop nav */
 .nav {
   display: flex;
-  align-items: center;
+  align-items: right;
   gap: 32px; /* spacing between links */
 }
 
