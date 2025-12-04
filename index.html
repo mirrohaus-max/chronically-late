@@ -307,5 +307,13 @@ Everything follows one standard: clean, intentional, and built to last.
         });
     })();
 </script>
+<script>
+const toggle = document.querySelector('.nav-toggle');
+const drawer = document.querySelector('.nav-drawer');
+
+toggle.addEventListener('click', () => {
+    drawer.classList.toggle('open');
+});
+</script>
 </body>
 </html>
