@@ -281,5 +281,18 @@ Everything follows one standard: clean, intentional, and built to last.
   </div>
 
   <script src="js/main.js"></script>
+<script>
+    (function () {
+        const toggle = document.querySelector('.nav-toggle');
+        const drawer = document.querySelector('.nav-drawer');
+
+        if (!toggle || !drawer) return;
+
+        toggle.addEventListener('click', function () {
+            drawer.classList.toggle('is-open');
+            document.body.classList.toggle('nav-open');
+        });
+    })();
+</script>
 </body>
 </html>
