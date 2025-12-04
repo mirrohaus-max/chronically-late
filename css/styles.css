@@ -1002,3 +1002,102 @@ main a:hover,
 .contact-card .contact-line a:hover {
   color: #dd0000;           /* brand red only on hover */
 }
+
+/* Header layout */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 32px;
+}
+
+/* Logo */
+.header-logo {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.header-logo .logo-image {
+    display: block;
+    height: 32px;
+}
+
+/* Hamburger button */
+.nav-toggle {
+    display: none; /* hidden on desktop */
+    width: 40px;
+    height: 32px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    display: block;
+    height: 2px;
+    margin: 6px 0;
+    background: #ffffff;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Drawer container */
+.nav-drawer {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+/* Links */
+.nav-drawer a {
+    font-size: 14px;
+    text-decoration: none;
+    color: #ffffff;
+    opacity: 0.8;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.nav-drawer a:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+/* MOBILE: turn it into a drawer */
+@media (max-width: 900px) {
+    .nav-drawer {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 260px;
+        height: 100vh;
+        padding: 80px 24px 24px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+        background: rgba(3, 3, 3, 0.96);
+        box-shadow: -24px 0 60px rgba(0, 0, 0, 0.6);
+        transform: translateX(100%);
+        transition: transform 0.25s ease-out;
+    }
+
+    .nav-drawer.is-open {
+        transform: translateX(0%);
+    }
+
+    .nav-toggle {
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* Optional: darken background when open */
+    body.nav-open {
+        overflow: hidden;
+    }
+}
