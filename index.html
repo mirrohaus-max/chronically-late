@@ -300,5 +300,18 @@ toggle.addEventListener('click', () => {
     drawer.classList.toggle('open');
 });
 </script>
+<script>
+    (function () {
+        const navToggle = document.querySelector('.nav-toggle');
+        const nav = document.querySelector('.nav');
+
+        if (!navToggle || !nav) return;
+
+        navToggle.addEventListener('click', function () {
+            nav.classList.toggle('is-open');
+            navToggle.classList.toggle('is-open');
+        });
+    })();
+</script>
 </body>
 </html>
