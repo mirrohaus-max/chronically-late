@@ -1220,3 +1220,91 @@ main a:hover,
         display: flex;
     }
 }
+
+/* --- NAV TOGGLE (BURGER) --- */
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+}
+
+.nav-toggle span,
+.nav-toggle span::before,
+.nav-toggle span::after {
+    display: block;
+    width: 22px;
+    height: 2px;
+    border-radius: 999px;
+    background: #ffffff;
+    position: relative;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.nav-toggle span::before,
+.nav-toggle span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+}
+
+.nav-toggle span::before {
+    top: -6px;
+}
+
+.nav-toggle span::after {
+    top: 6px;
+}
+
+/* --- MOBILE LAYOUT --- */
+@media (max-width: 768px) {
+    .site-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-inline: 20px;
+    }
+
+    /* hide inline nav on mobile – we’ll show it as a drawer */
+    .nav {
+        position: fixed;
+        top: 64px;
+        right: 0;
+        background: #050509;
+        padding: 16px 24px 24px;
+        display: none;
+        flex-direction: column;
+        gap: 12px;
+        box-shadow: 0 16px 30px rgba(0, 0, 0, 0.6);
+        z-index: 20;
+    }
+
+    .nav.is-open {
+        display: flex;
+    }
+
+    .nav a {
+        font-size: 14px;
+        text-decoration: none;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+}
+
+/* Burger transforms into an X when open */
+.nav-toggle.is-open span {
+    transform: rotate(45deg);
+}
+
+.nav-toggle.is-open span::before {
+    transform: rotate(-90deg);
+    top: 0;
+}
+
+.nav-toggle.is-open span::after {
+    opacity: 0;
+}
