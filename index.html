@@ -32,22 +32,29 @@
 <body>
   <div class="page">
     <header class="site-header">
-  <div class="logo-lockup">
-    <img
-      src="mirrohaus-logo-header.png"
-      alt="MIRRØHAUS — A Creative System of Brands"
-      class="logo-image"
-    />
-  </div>
-    <nav class="nav">
-    <a href="/#studio" class="nav-link">Studio</a>
-    <a href="/#brands" class="nav-link">Brands</a>
-    <a href="/#work" class="nav-link">Work</a>
-    <a href="/#founder" class="nav-link">Founder</a>
-    <a href="/services.html" class="nav-link nav-link--active">Services</a>
-    <a href="/#contact" class="header-pill">Start a Project</a>
-</nav>
-    </header>
+    <div class="logo-lockup">
+        <!-- Logo = home button -->
+        <a href="index.html" class="header-logo">
+            <img src="assets/mirrohaus-logo.svg" alt="MIRRØHAUS — A Creative System of Brands" class="logo-image">
+        </a>
+    </div>
+
+    <!-- Drawer toggle button (hamburger) -->
+    <button class="nav-toggle" aria-label="Open navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Drawer menu -->
+    <nav class="nav-drawer">
+        <a href="index.html#studio">Studio</a>
+        <a href="index.html#brands">Brands</a>
+        <a href="index.html#work">Work</a>
+        <a href="index.html#founder">Founder</a>
+        <a href="services.html">Services</a>
+    </nav>
+</header>
 
     <main>
       <section id="hero" class="hero">
