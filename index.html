@@ -32,28 +32,41 @@
 <body>
   <div class="page">
     <header class="site-header">
-    <div class="logo-lockup">
-        <!-- Logo = home button -->
-        <a href="index.html" class="header-logo">
-            <img src="assets/mirrohaus-logo.svg" alt="MIRRØHAUS — A Creative System of Brands" class="logo-image">
+    <div class="header-inner">
+        
+        <!-- Logo (Home button) -->
+        <a href="/" class="header-logo">
+            <img src="assets/mirrohaus-logo.svg" alt="MIRRØHAUS" class="logo-image">
         </a>
+
+        <!-- Hamburger Button -->
+        <button class="nav-toggle" aria-label="Toggle Navigation">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Desktop Nav -->
+        <nav class="nav-desktop">
+            <a href="/studio.html">Studio</a>
+            <a href="/brands.html">Brands</a>
+            <a href="/work.html">Work</a>
+            <a href="/founder.html">Founder</a>
+            <a href="/services.html">Services</a>
+        </nav>
+
     </div>
 
-    <!-- Drawer toggle button (hamburger) -->
-    <button class="nav-toggle" aria-label="Open navigation">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-    <!-- Drawer menu -->
-    <nav class="nav-drawer">
-        <a href="index.html#studio">Studio</a>
-        <a href="index.html#brands">Brands</a>
-        <a href="index.html#work">Work</a>
-        <a href="index.html#founder">Founder</a>
-        <a href="services.html">Services</a>
-    </nav>
+    <!-- Drawer Menu -->
+    <div class="nav-drawer">
+        <nav class="nav-mobile">
+            <a href="/studio.html">Studio</a>
+            <a href="/brands.html">Brands</a>
+            <a href="/work.html">Work</a>
+            <a href="/founder.html">Founder</a>
+            <a href="/services.html">Services</a>
+        </nav>
+    </div>
 </header>
 
     <main>
