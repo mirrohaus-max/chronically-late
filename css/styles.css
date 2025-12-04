@@ -1331,7 +1331,7 @@ main a:hover,
 
 .header-logo {
   display: inline-flex;
-  align-items: center;
+  align-items: left;
   text-decoration: none;
 }
 
