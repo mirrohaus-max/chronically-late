@@ -16,3 +16,14 @@ const yearSpan = document.getElementById('year');
 if (yearSpan) {
   yearSpan.textContent = new Date().getFullYear().toString();
 }
+
+document.addEventListener("DOMContentLoaded", function () {
+  var burger = document.getElementById("mh-burger");
+  var mobileNav = document.getElementById("mh-mobile-nav");
+
+  if (burger && mobileNav) {
+    burger.addEventListener("click", function () {
+      mobileNav.classList.toggle("is-open");
+    });
+  }
+});
