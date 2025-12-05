@@ -1438,3 +1438,118 @@ main a:hover,
     font-size: 15px;
   }
 }
+
+/* === HEADER === */
+.mh-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: #000;
+  border-bottom: 1px solid #222;
+}
+
+.mh-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mh-logo-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.mh-logo {
+  height: 40px;
+  width: auto;
+}
+
+/* Desktop nav */
+.mh-nav {
+  display: flex;
+  gap: 1.75rem;
+}
+
+.mh-nav-link {
+  position: relative;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: #f5f5f5;
+  padding-bottom: 0.2rem;
+}
+
+/* Hover underline animation */
+.mh-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.25rem;
+  width: 0;
+  height: 2px;
+  background: #dd0000; /* your red */
+  transition: width 0.2s ease-out;
+}
+
+.mh-nav-link:hover::after {
+  width: 100%;
+}
+
+/* Burger (mobile) */
+.mh-burger {
+  display: none;
+  flex-direction: column;
+  gap: 0.25rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.mh-burger span {
+  width: 22px;
+  height: 2px;
+  background: #f5f5f5;
+}
+
+/* Mobile nav */
+.mh-mobile-nav {
+  display: none;
+  flex-direction: column;
+  background: #000;
+  border-top: 1px solid #222;
+}
+
+.mh-mobile-nav.is-open {
+  display: flex;
+}
+
+.mh-mobile-link {
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  color: #f5f5f5;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-bottom: 1px solid #151515;
+}
+
+.mh-mobile-link:hover {
+  background: #111;
+  color: #dd0000;
+}
+
+/* Responsive rules */
+@media (max-width: 768px) {
+  .mh-nav {
+    display: none; /* hide desktop nav */
+  }
+
+  .mh-burger {
+    display: flex; /* show burger */
+  }
+}
