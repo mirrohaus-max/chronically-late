@@ -30,27 +30,44 @@
 <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon-180.png" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="logo-lockup">
-        <!-- Logo is now the Home button -->
-        <a href="/" class="header-logo">
-            <img src="assets/mirrohaus-logo-header.png" alt="MIRRØHAUS" />
-        </a>
-    </div>
+  <header class="mh-header">
+  <div class="mh-header-inner">
+    <!-- LOGO = HOME BUTTON -->
+    <a href="index.html" class="mh-logo-link">
+      <img
+        src="mirrohaus-logo-header.png"
+        alt="MIRRØHAUS"
+        class="mh-logo"
+      />
+    </a>
 
-    <!-- Burger button -->
-    <button class="nav-toggle" aria-label="Toggle navigation">
-        <span></span>
-    </button>
-
-    <!-- Main nav -->
-    <nav class="nav">
-        <a href="#studio">Studio</a>
-        <a href="#brands">Brands</a>
-        <a href="#work">Work</a>
-        <a href="#founder">Founder</a>
-        <a href="/services.html">Services</a>
+    <!-- DESKTOP NAV -->
+    <nav class="mh-nav">
+      <a href="about.html" class="mh-nav-link">About Us</a>
+      <a href="brands.html" class="mh-nav-link">Brands</a>
+      <a href="contact.html" class="mh-nav-link">Contact</a>
+      <a href="services.html" class="mh-nav-link">Services</a>
     </nav>
+
+    <!-- MOBILE BURGER -->
+    <button
+      class="mh-burger"
+      id="mh-burger"
+      aria-label="Toggle navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <!-- MOBILE NAV -->
+  <nav class="mh-mobile-nav" id="mh-mobile-nav">
+    <a href="about.html" class="mh-mobile-link">About Us</a>
+    <a href="brands.html" class="mh-mobile-link">Brands</a>
+    <a href="contact.html" class="mh-mobile-link">Contact</a>
+    <a href="services.html" class="mh-mobile-link">Services</a>
+  </nav>
 </header>
 
     <main>
