@@ -1939,3 +1939,9 @@ main a:hover,
     justify-content: center;
   }
 }
+
+/* .page-section + .page-section {
+  border-top: 1px solid rgba(221, 0, 0, 0.22);
+  padding-top: 2.75rem;
+  margin-top: 2.75rem;
+} */
