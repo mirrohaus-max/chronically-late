@@ -644,3 +644,70 @@ a { color: inherit; text-decoration: none; }
   padding-top: clamp(2.25rem, 3.5vw, 3rem);
   margin-top: clamp(2.25rem, 3.5vw, 3rem);
 }
+
+/* =========================================
+   Full-bleed dividers — SCOPED TO INTERNAL PAGES
+   Append to the END of site.css
+   ========================================= */
+
+/* Vars */
+:root {
+  --mh-divider-color: var(--mh-red, #DD0000);
+  --mh-divider-width: 1px;
+}
+
+/* 0) Only internal pages are inside .page-main */
+.page-main :is(.section, .page-section) {
+  overflow: visible;          /* prevent clipping the pseudo line */
+  isolation: isolate;         /* keep stacking sane */
+  border-top: none;           /* neutralize any short borders here only */
+}
+
+/* 1) Between adjacent sections (internal pages only) */
+.page-main :is(.section, .page-section) + :is(.section, .page-section) {
+  position: relative;
+}
+
+/* 2) Draw the full-bleed red line */
+.page-main :is(.section, .page-section) + :is(.section, .page-section)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;                           /* edge-to-edge */
+  height: var(--mh-divider-width);
+  background: var(--mh-divider-color);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 3) If an internal page has a hero, skip the first divider after it */
+.page-main .hero + :is(.section, .page-section)::before { display: none; }
+
+/* 4) Utilities (internal pages) */
+.page-main .has-divider-top { position: relative; }
+.page-main .has-divider-top::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: var(--mh-divider-width);
+  background: var(--mh-divider-color);
+}
+.page-main .no-divider-top::before { display: none !important; }
+
+/* 5) Friendly spacing (internal pages) */
+.page-main :is(.section, .page-section) + :is(.section, .page-section),
+.page-main .has-divider-top {
+  padding-top: clamp(2.25rem, 3.5vw, 3rem);
+  margin-top: clamp(2.25rem, 3.5vw, 3rem);
+}
+
+/* --- HOMEPAGE SAFETY SHIM ---
+   If a previous global rule disabled borders everywhere,
+   this restores the homepage’s original dividers without touching internals. */
+body:not(:has(.page-main)) .section + .section {
+  border-top: 1px solid var(--mh-divider-color);
+}
