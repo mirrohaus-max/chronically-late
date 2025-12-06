@@ -483,3 +483,40 @@ a { color: inherit; text-decoration: none; }
   * { animation: none !important; transition: none !important; }
   .nav a::after, .mh-nav-link::after { width: 0 !important; }
 }
+
+/* =========================================
+   Divider normalize — append to END of site.css
+   Ensures every section divider matches homepage
+   ========================================= */
+
+/* Vars (inherit brand red) */
+:root {
+  --mh-divider-color: var(--mh-red, #DD0000);
+  --mh-divider-width: 1px;
+}
+
+/* Match homepage: thin solid red line between sections */
+:is(.section, .page-section, .mh-divider-top) + :is(.section, .page-section, .mh-divider-top) {
+  border-top: var(--mh-divider-width) solid var(--mh-divider-color);
+}
+
+/* Keep hero clean (no line right after hero) */
+.hero + :is(.section, .page-section) {
+  border-top: none;
+}
+
+/* Utilities */
+.has-divider-top { border-top: var(--mh-divider-width) solid var(--mh-divider-color) !important; }
+.no-divider-top  { border-top: none !important; }
+
+/* Optional: consistent spacing so the line isn’t cramped */
+:is(.section, .page-section).has-divider-top,
+:is(.section, .page-section) + :is(.section, .page-section) {
+  padding-top: clamp(2.5rem, 4vw, 3rem);
+  margin-top: clamp(2.5rem, 4vw, 3rem);
+}
+
+/* If a page already has a semi-transparent divider, upgrade it to brand red */
+.page-section + .page-section {
+  border-top: var(--mh-divider-width) solid var(--mh-divider-color);
+}
