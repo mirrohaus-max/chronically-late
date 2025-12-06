@@ -520,3 +520,61 @@ a { color: inherit; text-decoration: none; }
 .page-section + .page-section {
   border-top: var(--mh-divider-width) solid var(--mh-divider-color);
 }
+
+/* =========================================
+   Full-bleed section dividers (append to END)
+   ========================================= */
+
+/* Vars */
+:root {
+  --mh-divider-color: var(--mh-red, #DD0000);
+  --mh-divider-width: 1px;
+}
+
+/* 1) Neutralize any existing short borders */
+:is(.section, .page-section, .mh-divider-top) { border-top: none !important; }
+
+/* 2) Full-bleed line between sections */
+:is(.section, .page-section, .mh-divider-top)
+  + :is(.section, .page-section, .mh-divider-top) {
+  position: relative; /* anchor the pseudo line */
+}
+
+/* draw a 100vw line centered on the viewport */
+:is(.section, .page-section, .mh-divider-top)
+  + :is(.section, .page-section, .mh-divider-top)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;                         /* full-bleed */
+  height: var(--mh-divider-width);
+  background: var(--mh-divider-color);  /* solid red like homepage */
+  pointer-events: none;
+  z-index: 0;                           /* sits under content */
+}
+
+/* 3) Keep hero clean (no immediate divider after hero) */
+.hero + :is(.section, .page-section, .mh-divider-top)::before { display: none; }
+
+/* 4) Utilities */
+.has-divider-top { position: relative; }
+.has-divider-top::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: var(--mh-divider-width);
+  background: var(--mh-divider-color);
+}
+.no-divider-top::before { display: none !important; }
+
+/* 5) Optional: consistent breathing room above lines */
+:is(.section, .page-section, .mh-divider-top)
+  + :is(.section, .page-section, .mh-divider-top),
+.has-divider-top {
+  padding-top: clamp(2.25rem, 3.5vw, 3rem);
+  margin-top: clamp(2.25rem, 3.5vw, 3rem);
+}
