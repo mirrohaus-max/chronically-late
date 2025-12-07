@@ -555,3 +555,44 @@ a { color: inherit; text-decoration: none; }
 }
 /* Fallback if :has() isn't available: keep your existing
    .section + .section { border-top: 1px solid #DD0000; } rule untouched. */
+
+/* =========================================================
+   Unified red borders for all "cards" — append to END
+   ========================================================= */
+
+/* Tokens */
+:root{
+  --mh-card-border-color: var(--mh-red, #DD0000);
+  --mh-card-border-width: 1px;
+  --mh-card-radius: var(--radius-lg, 18px);
+}
+
+/* Apply the Careers red outline to all card-like components */
+:is(
+  .brand-card,
+  .work-card,
+  .retainer-card,
+  .contact-card,
+  .pill,
+  .role-card,
+  .founder-card
+),
+/* Utility opt-in for any new card */
+.mh-card--red {
+  border: var(--mh-card-border-width) solid var(--mh-card-border-color) !important;
+  border-radius: var(--mh-card-radius) !important;
+}
+
+/* Optional: subtle interaction to match Careers feel */
+:is(
+  .brand-card,
+  .work-card,
+  .retainer-card,
+  .contact-card,
+  .pill,
+  .role-card,
+  .founder-card,
+  .mh-card--red
+):is(:hover, :focus-within){
+  box-shadow: 0 0 0 1px rgba(221,0,0,0.25) inset;
+}
