@@ -711,3 +711,75 @@ a { color: inherit; text-decoration: none; }
 body:not(:has(.page-main)) .section + .section {
   border-top: 1px solid var(--mh-divider-color);
 }
+
+/* =========================================================
+   APPEND THIS TO THE VERY END OF styles.css
+   Full-bleed dividers for internal pages only (.page-main)
+   Keep homepage dividers exactly as-is.
+   ========================================================= */
+
+/* brand vars */
+:root {
+  --mh-divider-color: var(--mh-red, #DD0000);
+  --mh-divider-width: 1px;
+}
+
+/* INTERNAL PAGES ONLY (scoped to .page-main) */
+.page-main :is(.section, .page-section) {
+  overflow: visible;        /* prevent clipping pseudo line */
+  isolation: isolate;       /* keep stacking sane */
+  border-top: none;         /* ignore any short borders inside page-main */
+}
+
+/* adjacent sections on internal pages */
+.page-main :is(.section, .page-section) + :is(.section, .page-section) {
+  position: relative;
+}
+
+/* full-bleed red line (matches homepage width feel) */
+.page-main :is(.section, .page-section) + :is(.section, .page-section)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: var(--mh-divider-width);
+  background: var(--mh-divider-color);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* no divider immediately after a hero on internal pages */
+.page-main .hero + :is(.section, .page-section)::before { display: none; }
+
+/* optional utilities (internal pages) */
+.page-main .has-divider-top { position: relative; }
+.page-main .has-divider-top::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: var(--mh-divider-width);
+  background: var(--mh-divider-color);
+}
+.page-main .no-divider-top::before { display: none !important; }
+
+/* spacing around the line on internal pages */
+.page-main :is(.section, .page-section) + :is(.section, .page-section),
+.page-main .has-divider-top {
+  padding-top: clamp(2.25rem, 3.5vw, 3rem);
+  margin-top: clamp(2.25rem, 3.5vw, 3rem);
+}
+
+/* ---------------- HOMEPAGE SAFETY SHIM ---------------- */
+/* If some earlier global rule removed borders everywhere,
+   this restores the homepage’s original thin red divider. */
+@supports(selector(body:not(:has(.page-main)))) {
+  body:not(:has(.page-main)) .section + .section {
+    border-top: var(--mh-divider-width) solid var(--mh-divider-color);
+  }
+}
+/* Fallback if :has() isn't available: keep your existing
+   .section + .section { border-top: 1px solid #DD0000; } rule untouched. */
