@@ -81,62 +81,54 @@
     </p>
   </section>
 
-  <section class="page-section contact-layout">
-    <div class="contact-info">
-      <h2>Start the Conversation</h2>
-      <p>
-        Tell us who you are, what you’re building, and what’s not working
-        with your current brand or site.
-      </p>
-      <p>
-        Email: <a href="mailto:mirrohaus@gmail.com">mirrohaus@gmail.com</a>
-      </p>
-      <p>
-        For bigger builds, retainers, or multi-brand systems, include an
-        estimated timeline and budget range so we can respond with the right
-        options.
-      </p>
+  <!-- contact.html (inside the contact section) -->
+<section id="contact" class="section section-contact">
+  <div class="section-inner">
+    <div class="contact-layout">
+      <!-- Left column: copy -->
+      <div class="contact-intro">
+        <h2 class="section-label">Start the conversation</h2>
+        <p>Tell us who you are, what you're building, and what's not working with your current brand or site.</p>
+        <p>Email: <a href="mailto:mirrohaus@gmail.com">mirrohaus@gmail.com</a></p>
+        <p>For bigger builds, retainers, or multi-brand systems, include an estimated timeline and budget range so we can respond with the right options.</p>
+      </div>
+
+      <!-- Right column: carded form -->
+      <div class="contact-card">
+        <form class="contact-form" onsubmit="return false;">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input id="name" type="text" name="name" placeholder="Your name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="email" type="email" name="email" placeholder="you@example.com" required />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="brand">Brand / Project</label>
+              <input id="brand" type="text" name="brand" placeholder="Your brand or project name" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="needs">What do you need help with?</label>
+              <textarea id="needs" name="needs" rows="5" placeholder="New brand, website refresh, funnel build, book launch, etc."></textarea>
+            </div>
+          </div>
+
+          <div class="form-submit">
+            <button class="btn btn-primary btn-full" type="submit">Submit (placeholder)</button>
+          </div>
+        </form>
+      </div>
     </div>
-
-    <form class="contact-form" onsubmit="return false;">
-      <label>
-        Name
-        <input type="text" name="name" placeholder="Your name" required />
-      </label>
-
-      <label>
-        Email
-        <input
-          type="email"
-          name="email"
-          placeholder="you@example.com"
-          required
-        />
-      </label>
-
-      <label>
-        Brand / Project
-        <input
-          type="text"
-          name="project"
-          placeholder="Your brand or project name"
-        />
-      </label>
-
-      <label>
-        What do you need help with?
-        <textarea
-          name="details"
-          rows="4"
-          placeholder="New brand, website refresh, funnel build, book launch, etc."
-        ></textarea>
-      </label>
-
-      <button type="submit" class="pill-button">
-        Submit (placeholder)
-      </button>
-    </form>
-  </section>
+  </div>
+</section>
 </main>
 
     <footer class="site-footer">
