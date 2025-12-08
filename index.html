@@ -96,9 +96,13 @@
       lifestyle, and publishing.
     </p>
     <div class="hero-actions">
-      <a href="#contact" class="btn btn-primary">Book a Consultation</a>
-      <a href="#brands" class="btn btn-ghost">Explore the Brands</a>
-    </div>
+  <a href="contact.html" class="btn btn-primary">Book a Consultation</a>
+  <!-- Replace your old 'Explore the Brands' link with this button -->
+  <button id="startProjectBtn" class="btn btn-ghost" type="button"
+          aria-haspopup="dialog" aria-controls="startProjectModal">
+    Start a Project
+  </button>
+</div>
   </div>
 </section>
 
@@ -386,5 +390,45 @@ toggle.addEventListener('click', () => {
 })();
 </script>
 first.focus
+    
+<div id="startProjectModal" class="mh-modal" role="dialog" aria-modal="true"
+     aria-labelledby="sp-title" aria-describedby="sp-desc" hidden>
+  <div class="mh-modal__backdrop" data-mh-modal-close></div>
+  <div class="mh-modal__dialog" role="document">
+    <button class="mh-modal__close" type="button" aria-label="Close" data-mh-modal-close>✕</button>
+    <header class="mh-modal__header">
+      <h2 id="sp-title">Start a Project</h2>
+      <p id="sp-desc" class="mh-modal__sub">Tell us what you’re building. We’ll follow up with next steps.</p>
+    </header>
+
+    <form class="contact-form" id="sp-form" onsubmit="return false;">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="sp-name">Name</label>
+          <input id="sp-name" name="name" type="text" placeholder="Your name" required />
+        </div>
+        <div class="form-group">
+          <label for="sp-email">Email</label>
+          <input id="sp-email" name="email" type="email" placeholder="you@example.com" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="sp-brand">Brand / Project</label>
+          <input id="sp-brand" name="brand" type="text" placeholder="Your brand or project name" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="sp-needs">What do you need help with?</label>
+          <textarea id="sp-needs" name="needs" rows="5" placeholder="New brand, website refresh, funnel build, book launch, etc."></textarea>
+        </div>
+      </div>
+      <div class="form-submit">
+        <button class="btn btn-primary btn-full" type="submit">Submit (placeholder)</button>
+      </div>
+    </form>
+  </div>
+</div>
 </body>
 </html>
