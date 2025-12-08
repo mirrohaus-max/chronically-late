@@ -430,5 +430,51 @@ first.focus
     </form>
   </div>
 </div>
+
+    <script>
+(function(){
+  const openBtn = document.getElementById('startProjectBtn');
+  const modal = document.getElementById('startProjectModal');
+  if (!openBtn || !modal) return;
+
+  const dlg = modal.querySelector('.mh-modal__dialog');
+  const closeEls = modal.querySelectorAll('[data-mh-modal-close]');
+  let lastActive = null;
+
+  function firstFocusable(){
+    return dlg.querySelector('button,[href],input,textarea,select,[tabindex]:not([tabindex="-1"])');
+  }
+  function trap(e){
+    if (e.key !== 'Tab') return;
+    const focusables = dlg.querySelectorAll('button,[href],input,textarea,select,[tabindex]:not([tabindex="-1"])');
+    const list = [...focusables].filter(el => !el.disabled && el.offsetParent !== null);
+    if (!list.length) return;
+    const first = list[0], last = list[list.length - 1];
+    if (e.shiftKey && document.activeElement === first) { last.focus(); e.preventDefault(); }
+    else if (!e.shiftKey && document.activeElement === last) { first.focus(); e.preventDefault(); }
+  }
+  function onKey(e){ if (e.key === 'Escape') close(); }
+
+  function open(){
+    lastActive = document.activeElement;
+    modal.hidden = false;
+    document.documentElement.classList.add('mh-modal-open');
+    const el = firstFocusable(); if (el) el.focus();
+    document.addEventListener('keydown', onKey);
+    dlg.addEventListener('keydown', trap);
+  }
+  function close(){
+    modal.hidden = true;
+    document.documentElement.classList.remove('mh-modal-open');
+    document.removeEventListener('keydown', onKey);
+    dlg.removeEventListener('keydown', trap);
+    if (lastActive && lastActive.focus) lastActive.focus();
+  }
+
+  openBtn.addEventListener('click', open);
+  closeEls.forEach(el => el.addEventListener('click', close));
+  modal.addEventListener('click', e => { if (e.target === modal) close(); });
+})();
+</script>
 </body>
 </html>
