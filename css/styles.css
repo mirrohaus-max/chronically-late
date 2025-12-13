@@ -665,3 +665,14 @@ a { color: inherit; text-decoration: none; }
 /* optional: make inner text feel the same as other cards */
 .brand-card h3 { color: #ffffff; }
 .brand-card p  { color: #c7c7c7; }
+
+/* Founder image sizing – controlled, not shrunk */
+.founder-media img {
+  width: 100%;
+  max-width: 360px;      /* controls on-page size */
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
