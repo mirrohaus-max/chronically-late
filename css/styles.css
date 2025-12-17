@@ -676,3 +676,23 @@ a { color: inherit; text-decoration: none; }
   border-radius: 16px;
   display: block;
 }
+
+.mh-form { display: grid; gap: 12px; }
+
+.mh-label { display: grid; gap: 6px; }
+
+.mh-form input,
+.mh-form textarea {
+  width: 100%;
+  background: var(--bg-elevated, #050812);
+  border: 1px solid var(--border-subtle, rgba(255,255,255,0.08));
+  color: var(--text, #f7f7f7);
+  padding: 12px 14px;
+  border-radius: 14px;
+}
+
+.mh-form input:focus,
+.mh-form textarea:focus {
+  outline: none;
+  border-color: var(--accent, #DD0000);
+}
