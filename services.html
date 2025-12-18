@@ -196,13 +196,55 @@
             </p>
           </div>
           <div class="contact-card">
-            <p class="contact-line"><span>Email</span> <a href="mailto:mirrohaus@gmail.com">mirrohaus@gmail.com</a></p>
-            <p class="contact-line"><span>Phone</span> <a href="tel:+18663597448">1 (866) 359-7448</a></p>
-            <p class="contact-line"><span>Web</span> <a href="https://mirrohaus.com" target="_blank" rel="noreferrer">mirrohaus.com</a></p>
-            <a href="mailto:mirrohaus@gmail.com?subject=Mirrohaus%20Consultation" class="btn btn-primary btn-full">
-              Start a Project
-            </a>
-          </div>
+  <form action="https://formspree.io/f/xojaqqbe" method="POST" class="mh-form">
+    <input type="hidden" name="_subject" value="MIRROHAUS — Services Inquiry">
+    <input type="hidden" name="page" value="Services">
+    <input type="hidden" name="source" value="mirrohaus.com">
+    <input type="text" name="_gotcha" style="display:none">
+
+    <label class="mh-label">
+      Name
+      <input type="text" name="name" required>
+    </label>
+
+    <label class="mh-label">
+      Email
+      <input type="email" name="email" required>
+    </label>
+
+    <label class="mh-label">
+      What do you need?
+      <select name="service" required>
+        <option value="" selected disabled>Select one</option>
+        <option>Brand Identity / Strategy</option>
+        <option>Web Design / Build</option>
+        <option>Content / Copywriting</option>
+        <option>Book Publishing</option>
+        <option>Retainer / Ongoing Support</option>
+      </select>
+    </label>
+
+    <label class="mh-label">
+      Budget range
+      <select name="budget" required>
+        <option value="" selected disabled>Select one</option>
+        <option>$500–$1,500</option>
+        <option>$1,500–$3,500</option>
+        <option>$3,500–$7,500</option>
+        <option>$7,500+</option>
+      </select>
+    </label>
+
+    <label class="mh-label">
+      Message
+      <textarea name="message" rows="5" required></textarea>
+    </label>
+
+    <button type="submit" class="btn btn-primary btn-full">Request Quote</button>
+  </form>
+
+  <p class="form-status" aria-live="polite"></p>
+</div>
         </div>
       </section>
 </main>
