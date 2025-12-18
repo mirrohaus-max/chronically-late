@@ -153,13 +153,47 @@
             </p>
           </div>
           <div class="contact-card">
-            <p class="contact-line"><span>Email</span> <a href="mailto:mirrohaus@gmail.com">mirrohaus@gmail.com</a></p>
-            <p class="contact-line"><span>Phone</span> <a href="tel:+18663597448">1 (866) 359-7448</a></p>
-            <p class="contact-line"><span>Web</span> <a href="https://mirrohaus.com" target="_blank" rel="noreferrer">mirrohaus.com</a></p>
-            <a href="mailto:mirrohaus@gmail.com?subject=Mirrohaus%20Consultation" class="btn btn-primary btn-full">
-              Contact Us
-            </a>
-          </div>
+  <form action="https://formspree.io/f/xykgyzgr" method="POST" class="mh-form">
+    <input type="hidden" name="_subject" value="MIRROHAUS — Brand Inquiry">
+    <input type="hidden" name="page" value="Brands">
+    <input type="hidden" name="source" value="mirrohaus.com">
+    <input type="text" name="_gotcha" style="display:none">
+
+    <label class="mh-label">
+      Name
+      <input type="text" name="name" required>
+    </label>
+
+    <label class="mh-label">
+      Email
+      <input type="email" name="email" required>
+    </label>
+
+    <label class="mh-label">
+      Which brand is this about?
+      <select name="brand" required>
+        <option value="" selected disabled>Select one</option>
+        <option>MIRROHAUS (Agency)</option>
+        <option>YB Goode Store</option>
+        <option>Luxe Lane</option>
+        <option>Club69</option>
+        <option>The VØID Label</option>
+        <option>Cribsy & Co.</option>
+      </select>
+    </label>
+
+    <label class="mh-label">
+      Message
+      <textarea name="message" rows="5" required></textarea>
+    </label>
+
+    <button type="submit" class="btn btn-primary btn-full">
+      Send Brand Inquiry
+    </button>
+  </form>
+
+  <p class="form-status" aria-live="polite"></p>
+</div>
         </div>
       </section>
 </main>
