@@ -1,221 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MIRRØHAUS · About Us</title>
+    <meta name="description" content="MIRRØHAUS is a creative system of brands, visuals, and experiences built to make small brands feel premium.">
 
-  <title>MIRRØHAUS — About Us</title>
-  <meta name="description" content="About MIRRØHAUS — a boutique studio built for brands that want to look intentional, not improvised." />
+    <!-- Open Graph / Social preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mirrohaus.com/">
+    <meta property="og:title" content="MIRRØHAUS · About Us">
+    <meta property="og:description" content="MIRRØHAUS is a creative system of brands, visuals, and experiences built to make small brands feel premium.">
+    <meta property="og:image" content="https://mirrohaus.com/mirrohaus-og.png">
 
-  <!-- Open Graph / Social preview -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://mirrohaus.com/about.html" />
-  <meta property="og:title" content="MIRRØHAUS — About Us" />
-  <meta property="og:description" content="A boutique studio built for brands that want to look intentional — not improvised." />
-  <meta property="og:image" content="https://mirrohaus.com/mirrohaus-og.png" />
+    <!-- Twitter / X preview -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MIRRØHAUS · About Us">
+    <meta name="twitter:description" content="MIRRØHAUS is a creative system of brands, visuals, and experiences built to make small brands feel premium.">
+    <meta name="twitter:image" content="https://mirrohaus.com/mirrohaus-og.png">
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="MIRRØHAUS — About Us" />
-  <meta name="twitter:description" content="A boutique studio built for brands that want to look intentional — not improvised." />
-  <meta name="twitter:image" content="https://mirrohaus.com/mirrohaus-og.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/..." rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
 
-  <!-- Fonts (match your pages) -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="./css/styles.css" />
-
-  <!-- Favicons -->
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-512.png" />
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-512.png" />
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon-180.png" />
+    <!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-512.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon-180.png" />
 </head>
-
 <body>
-  <div class="page">
+  <header class="mh-header">
+  <div class="mh-header-inner">
+    <!-- LOGO = HOME BUTTON -->
+    <a href="index.html" class="mh-logo-link">
+      <img
+        src="mirrohaus-logo-header.png"
+        alt="MIRRØHAUS"
+        class="mh-logo"
+      />
+    </a>
 
-    <!-- HEADER (same as services/contact) -->
-    <header class="mh-header">
-      <div class="mh-header-inner">
+    <!-- DESKTOP NAV -->
+    <nav class="mh-nav">
+      <a href="about.html" class="mh-nav-link">About Us</a>
+      <a href="brands.html" class="mh-nav-link">Brands</a>
+      <a href="contact.html" class="mh-nav-link">Contact</a>
+      <a href="services.html" class="mh-nav-link">Services</a>
+    </nav>
 
-        <!-- LOGO = HOME BUTTON -->
-        <a href="index.html" class="mh-logo-link">
-          <img
-            src="assets/mirrohaus-logo-header.png"
-            alt="MIRRØHAUS"
-            class="mh-logo"
-          />
-        </a>
+    <!-- MOBILE BURGER -->
+    <button
+      class="mh-burger"
+      id="mh-burger"
+      aria-label="Toggle navigation"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
 
-        <!-- DESKTOP NAV -->
-        <nav class="mh-nav">
-          <a href="about.html" class="mh-nav-link">About Us</a>
-          <a href="brands.html" class="mh-nav-link">Brands</a>
-          <a href="contact.html" class="mh-nav-link">Contact</a>
-          <a href="services.html" class="mh-nav-link">Services</a>
-        </nav>
-
-        <!-- MOBILE BURGER -->
-        <button
-          class="mh-burger"
-          id="mh-burger"
-          aria-label="Toggle navigation"
-          type="button"
-        >
-          <span></span><span></span><span></span>
-        </button>
-      </div>
-
-      <!-- MOBILE NAV -->
-      <nav class="mh-mobile-nav" id="mh-mobile-nav">
-        <a href="about.html" class="mh-mobile-nav-link">About Us</a>
-        <a href="brands.html" class="mh-mobile-nav-link">Brands</a>
-        <a href="contact.html" class="mh-mobile-nav-link">Contact</a>
-        <a href="services.html" class="mh-mobile-nav-link">Services</a>
-      </nav>
-    </header>
+  <!-- MOBILE NAV -->
+  <nav class="mh-mobile-nav" id="mh-mobile-nav">
+    <a href="about.html" class="mh-mobile-link">About Us</a>
+    <a href="brands.html" class="mh-mobile-link">Brands</a>
+    <a href="contact.html" class="mh-mobile-link">Contact</a>
+    <a href="services.html" class="mh-mobile-link">Services</a>
+  </nav>
+</header>
 
    <main class="page-main">
-
-  <!-- ABOUT HERO -->
-  <section id="about-hero" class="page-section">
-    <div class="section-inner">
-      p class="page-hero-kicker">Strategy · Design · Systems</p>
+  <!-- HERO -->
+  <section class="page-section">
+    <p class="page-hero-kicker">Strategy · Design · Systems</p>
     <h1>About MIRRØHAUS</h1>
     <p>
-      MIRRØHAUS is a boutique studio built for brands that want to look intentional — not improvised.
+      MIRRØHAUS is a boutique studio built for brands that want to look intentional — not improvised. 
       We design systems, stories, and visuals that make your brand feel inevitable the moment someone lands.
     </p>
   </section>
 
-  <div class="divider"></div>
-
-  <!-- WHAT WE DO -->
-  <section id="what-we-do" class="page-section">
-    <div class="section-inner">
-    <p class="section-label">What We Do</p>
-    <h2>Premium brand systems, built to convert.</h2>
+  <!-- CORE SERVICES -->
+  <section class="page-section">
+    <h2>What We Do</h2>
     <p>
-      We don’t just make things “look nice.” We build clean, structured brand experiences
-      that move people to click, buy, book, and come back — without begging.
+      We don’t just make things “look nice.” 
+      We build clean, structured brand experiences that move people to click, buy, book, and come back 
+      — without begging.
     </p>
-
-    <h3>What you’re really getting</h3>
-    <p>
-      A brand system — not scattered assets. Clear positioning, disciplined visuals,
-      and a web presence that feels intentional from the first scroll to the final CTA.
-    </p>
-
-    <div class="cta-row">
-      <a href="services.html" class="btn btn-ghost">Explore Services</a>
-    </div>
-
-    <h3>Core capabilities</h3>
-    <ul class="bullets">
-      <li>Brand strategy and visual identity</li>
-      <li>Website design &amp; landing pages</li>
-      <li>Funnels and conversion optimization</li>
-      <li>Ongoing creative direction and retainers</li>
-      <li>Book and author brand development</li>
+    <ul class="page-list">
+      <li>• Brand strategy, naming, and positioning</li>
+      <li>• Logo and visual identity systems</li>
+      <li>• Website &amp; landing page design</li>
+      <li>• Funnel and conversion layout</li>
+      <li>• Launch creative for new products or brands</li>
+      <li>• Ongoing creative direction and asset design</li>
+      <li>• Book cover design and publishing support</li>
     </ul>
   </section>
 
-  <div class="divider"></div>
-
-  <!-- THE MIRRØHAUS ANGLE -->
-  <section id="the-angle" class="page-section">
-    <div class="section-inner">
-    <p class="section-label">The MIRRØHAUS Angle</p>
-    <h2>The mirror comes first.</h2>
+  <!-- RETAINER TIERS -->
+  <section class="page-section">
+    <h2>Retainer Tiers</h2>
     <p>
-      Before we design anything, we reflect what’s already true — who you are, what you’re building,
-      and how your audience already sees you. Then we build around that truth — not around trends.
+      Choose the level that matches your current season. All retainers include
+      direct access, aligned design, and a clean system behind the visuals.
     </p>
 
-    <blockquote class="quote-block">
-      <p>“A flagship doesn’t need to be loud. It needs to be undeniable.”</p>
-    </blockquote>
+    <div class="retainer-grid">
+      <article class="retainer-card">
+        <p class="retainer-tag">Tier I</p>
+        <h3>Foundation</h3>
+        <p class="retainer-desc">
+          For solo founders or lean teams who need a dedicated creative arm
+          without hiring in-house.
+        </p>
+        <ul>
+          <li>Monthly design &amp; copy support</li>
+          <li>Site tweaks and landing page updates</li>
+          <li>Prioritized small projects</li>
+        </ul>
+      </article>
 
-    <div class="cta-row">
-      <a href="services.html" class="btn btn-ghost">See Services</a>
+      <article class="retainer-card">
+        <p class="retainer-tag">Tier II</p>
+        <h3>Growth</h3>
+        <p class="retainer-desc">
+          For brands running active campaigns, launches, or multiple product
+          lines.
+        </p>
+        <ul>
+          <li>Everything in Tier I</li>
+          <li>New page and funnel builds</li>
+          <li>Ongoing creative strategy sessions</li>
+        </ul>
+      </article>
+
+      <article class="retainer-card">
+        <p class="retainer-tag">Tier III</p>
+        <h3>System</h3>
+        <p class="retainer-desc">
+          For full ecosystems: multiple brands, complex funnels, or publishing
+          + e-commerce under one roof.
+        </p>
+        <ul>
+          <li>Priority access and rapid turnarounds</li>
+          <li>Multi-brand creative direction</li>
+          <li>Launch planning &amp; asset roadmaps</li>
+        </ul>
+      </article>
     </div>
   </section>
 
-  <div class="divider"></div>
-
-  <!-- FOUNDER -->
-  <section id="founder" class="page-section">
-    <div class="section-inner">
-    <p class="section-label">Founder</p>
-    <h2>Built by a founder who obsesses over detail.</h2>
-    <p>
-      MIRRØHAUS isn’t a template shop. It’s a studio built on standards — clean design, tight structure,
-      and a brand presence that feels inevitable from the first glance.
-    </p>
-
-    <div class="founder-block">
-      <img
-        src="assets/mirrohaus-founder.jpg"
-        alt="Founder of MIRRØHAUS"
-        loading="lazy"
-      />
-      <div class="founder-meta">
-        <h3>Theodore Ford</h3>
-        <p class="muted">Founder · MIRRØHAUS</p>
-        <p class="muted">Strategy · Design Systems · Web Presence</p>
-      </div>
+  <!-- BOOK PUBLISHING SUPPORT -->
+  <section class="page-section page-section-split">
+    <div class="split-main">
+      <h2>Book Publishing Support</h2>
+      <p>
+        For founders and authors who want their book to look and feel like
+        part of the brand — not a random side project.
+      </p>
+      <ul class="page-list">
+        <li>• Cover design and interior layout</li>
+        <li>• Brand-aligned landing pages and funnels</li>
+        <li>• Launch creative for social, email, and ads</li>
+        <li>• Coordination with printers and platforms</li>
+      </ul>
     </div>
-
-    <blockquote class="quote-block">
-      <p>“Luxury isn’t decoration. It’s clarity, consistency, and control.”</p>
-    </blockquote>
-
-    <div class="cta-row">
-      <a href="contact.html" class="btn btn-primary">Start a Project</a>
-      <a href="services.html" class="btn btn-ghost">See Services</a>
+    <div class="split-accent">
+      <p class="split-kicker">For Authors &amp; Brand Leaders</p>
+      <p>
+        If your book is meant to position you as the face of a system, we
+        design everything around that — from the cover to the URL on the back.
+      </p>
     </div>
   </section>
 
-  <div class="divider"></div>
+  <!-- CTA SECTION -->
+ <section class="contact-logo">
+  <img
+    src="/mirrohaus-logo-contact.png"
+    alt="MIRRØHAUS – A Creative System of Brands"
+  >
+</section>
 
-  <!-- NEXT -->
-  <section id="next" class="page-section">
-    <div class="section-inner">
-    <p class="section-label">Next</p>
-    <h2>Ready to build something that looks inevitable?</h2>
-    <p>
-      Share what you’re building, where you’re stuck, and what “done right” looks like.
-      We’ll map the first move and the cleanest path forward.
-    </p>
+<section id="contact" class="section section-contact">
+        <div class="section-inner contact-layout">
+          <div>
+            <div class="section-label">Contact</div>
+            <h2>Ready to build something real?</h2>
+            <p>
+              For brand development, creative direction, and consulting inquiries, send a short note
+              with what you're building, current links, and where you want it to go.
+            </p>
+          </div>
+          <div class="contact-card">
+  <form action="https://formspree.io/f/xojaqqbe" method="POST" class="mh-form">
+    <input type="hidden" name="_subject" value="MIRROHAUS — Services Inquiry">
+    <input type="hidden" name="page" value="Services">
+    <input type="hidden" name="source" value="mirrohaus.com">
+    <input type="text" name="_gotcha" style="display:none">
 
-    <div class="cta-row">
-      <a href="contact.html" class="btn btn-primary btn-full">Start a Project</a>
-    </div>
-  </section>
+    <label class="mh-label">
+      Name
+      <input type="text" name="name" required>
+    </label>
 
+    <label class="mh-label">
+      Email
+      <input type="email" name="email" required>
+    </label>
+
+    <label class="mh-label">
+      What do you need?
+      <select name="service" required>
+        <option value="" selected disabled>Select one</option>
+        <option>Brand Identity / Strategy</option>
+        <option>Web Design / Build</option>
+        <option>Content / Copywriting</option>
+        <option>Book Publishing</option>
+        <option>Retainer / Ongoing Support</option>
+      </select>
+    </label>
+
+    <label class="mh-label">
+      Budget range
+      <select name="budget" required>
+        <option value="" selected disabled>Select one</option>
+        <option>$500–$1,500</option>
+        <option>$1,500–$3,500</option>
+        <option>$3,500–$7,500</option>
+        <option>$7,500+</option>
+      </select>
+    </label>
+
+    <label class="mh-label">
+      Message
+      <textarea name="message" rows="5" required></textarea>
+    </label>
+
+    <button type="submit" class="btn btn-primary btn-full">Request Quote</button>
+  </form>
+
+  <p class="form-status" aria-live="polite"></p>
+</div>
+        </div>
+      </section>
 </main>
 
-    <!-- FOOTER (same as your pages) -->
     <footer class="site-footer">
-      <div class="divider-to-footer"></div>
-      <div class="container footer-inner">
-        <div class="footer-copy">
-          <p>© <span id="footer-year"></span> MIRRØHAUS LLC. All rights reserved.</p>
-          <p class="footer-tagline">We build brands that feel like worlds.</p>
-        </div>
-        <div class="footer-right">
-          <a href="careers.html" class="footer-link">Careers</a>
-        </div>
-      </div>
-    </footer>
-
+  <div class="divider-red"></div>
+  <div class="container footer-inner">
+    <div class="footer-left">
+      <p>&copy; <span id="year"></span> MIRROHAUS LLC. All rights reserved.</p>
+      <p class="footer-tagline">We build brands that feel like worlds.</p>
+    </div>
+    <div class="footer-right">
+      <a href="careers.html" class="footer-link">Careers</a>
+    </div>
+  </div>
+</footer>
   </div>
 
-  <script src="./js/main.js"></script>
-  <script>
-    document.getElementById("footer-year").textContent = new Date().getFullYear();
-  </script>
+  <script src="js/main.js"></script>
+<script>
+    (function () {
+        const toggle = document.querySelector('.nav-toggle');
+        const drawer = document.querySelector('.nav-drawer');
+
+        if (!toggle || !drawer) return;
+
+        toggle.addEventListener('click', function () {
+            drawer.classList.toggle('is-open');
+            document.body.classList.toggle('nav-open');
+        });
+    })();
+</script>
+<script>
+    (function () {
+        const navToggle = document.querySelector('.nav-toggle');
+        const nav = document.querySelector('.nav');
+
+        if (!navToggle || !nav) return;
+
+        navToggle.addEventListener('click', function () {
+            nav.classList.toggle('is-open');
+            navToggle.classList.toggle('is-open');
+        });
+    })();
+</script>
 </body>
 </html>
