@@ -760,3 +760,19 @@ a { color: inherit; text-decoration: none; }
   width: 100%;
 }
 
+.brand-spotlight__title{ min-width: 240px; }
+
+.brand-spotlight__logo{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.brand-spotlight__logo img{
+  max-width: 140px;
+  max-height: 44px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.95;
+}
