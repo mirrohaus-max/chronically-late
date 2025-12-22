@@ -226,99 +226,91 @@
     </section>
 
     <!-- APPLICATION FORM -->
-    <section id="contact" class="section section-contact">
-        <div class="section-inner contact-layout">
-          <div>
-            <div class="section-label">Careers</div>
-            <section id="contact" class="section section-contact">
-        <div class="section-inner contact-layout">
-          <div>
-            <div class="section-label">Careers</div>
-            <h2>Join the Team</h2>
-            <p>
-              If your work is exceptional, we’d love to see it. Tell us what you’re world-class at, and we’ll reach out if there’s a strong fit.
-            </p>
-          </div>
-          <div class="contact-card">
-  <form id="careersForm" action="https://formspree.io/f/mwverywr" method="POST" class="form">
-  <input type="hidden" name="form_name" value="Careers Application" />
+<section id="careers-apply" class="section section-contact">
+  <div class="section-inner contact-layout">
+    <div class="contact-copy">
+      <div class="section-label">CAREERS</div>
+      <h2>Join the Team</h2>
+      <p>
+        If your work is exceptional, we’d love to see it. Tell us what you’re world-class at,
+        and we’ll reach out if there’s a strong fit.
+      </p>
+    </div>
 
-  <div class="form-group">
-    <label for="fullName">Name</label>
-    <input id="fullName" name="fullName" type="text" autocomplete="name" required />
-  </div>
+    <div class="contact-card">
+      <!-- keep ONLY the form inside this card -->
+      <form id="careersForm" action="https://formspree.io/f/mwverywr" method="POST" class="form">
+        <input type="hidden" name="form_name" value="Careers Application" />
 
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input id="email" name="email" type="email" autocomplete="email" required />
-  </div>
-
-  <div class="form-group">
-    <label for="role">Role</label>
-    <select id="role" name="role" required>
-      <option value="" selected disabled>Select one</option>
-      <option>Web Developer</option>
-      <option>UI/UX Designer</option>
-      <option>Brand Designer</option>
-      <option>Shopify Specialist</option>
-      <option>Copywriter</option>
-      <option>Video Editor</option>
-      <option>Social Media / Content</option>
-      <option>Ads / Performance Marketer</option>
-      <option>Other</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label for="availability">Availability</label>
-    <select id="availability" name="availability" required>
-      <option value="" selected disabled>Select one</option>
-      <option>5–10 hrs/week</option>
-      <option>10–20 hrs/week</option>
-      <option>20–30 hrs/week</option>
-      <option>30+ hrs/week</option>
-      <option>Project-based</option>
-    </select>
-  </div>
-
-  <div class="form-group">
-    <label for="portfolio">Portfolio / Website</label>
-    <input id="portfolio" name="portfolio" type="url" placeholder="https://…" />
-  </div>
-
-  <div class="form-group">
-    <label for="location">Location / Timezone</label>
-    <input id="location" name="location" type="text" placeholder="e.g., Boston (EST), London (GMT)" />
-  </div>
-
-  <div class="form-group">
-    <label for="rate">Rate</label>
-    <input id="rate" name="rate" type="text" placeholder="$50/hr or $1,500/project" />
-  </div>
-
-  <div class="form-group">
-    <label for="start">Start Date</label>
-    <input id="start" name="start" type="text" placeholder="ASAP / next week / Jan 15" />
-  </div>
-
-  <div class="form-group">
-    <label for="message">Message</label>
-    <textarea
-      id="message"
-      name="message"
-      rows="6"
-      placeholder="Quick background, strongest skills, past wins, and what you want to build at MIRRØHAUS."
-      required
-    ></textarea>
-  </div>
-
-  <button type="submit" class="btn btn-primary btn-wide">Apply Now</button>
-</form>
-
-  <p class="form-status" aria-live="polite"></p>
-</div>
+        <div class="form-group">
+          <label for="fullName">Name</label>
+          <input id="fullName" name="fullName" type="text" autocomplete="name" required />
         </div>
-      </section>
+
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="role">Role</label>
+          <select id="role" name="role" required>
+            <option value="" selected disabled>Select one</option>
+            <option>Web Developer</option>
+            <option>UI/UX Designer</option>
+            <option>Brand Designer</option>
+            <option>Shopify Specialist</option>
+            <option>Copywriter</option>
+            <option>Video Editor</option>
+            <option>Social Media / Content</option>
+            <option>Ads / Performance Marketer</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="availability">Availability</label>
+          <select id="availability" name="availability" required>
+            <option value="" selected disabled>Select one</option>
+            <option>5–10 hrs/week</option>
+            <option>10–20 hrs/week</option>
+            <option>20–30 hrs/week</option>
+            <option>30+ hrs/week</option>
+            <option>Project-based</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="portfolio">Portfolio / Website</label>
+          <input id="portfolio" name="portfolio" type="url" placeholder="https://…" />
+        </div>
+
+        <div class="form-group">
+          <label for="location">Location / Timezone</label>
+          <input id="location" name="location" type="text" placeholder="e.g., Boston (EST), London (GMT)" />
+        </div>
+
+        <div class="form-group">
+          <label for="rate">Rate</label>
+          <input id="rate" name="rate" type="text" placeholder="$50/hr or $1,500/project" />
+        </div>
+
+        <div class="form-group">
+          <label for="start">Start Date</label>
+          <input id="start" name="start" type="text" placeholder="ASAP / next week / Jan 15" />
+        </div>
+
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required
+            placeholder="Quick background, strongest skills, past wins, and what you want to build at MIRRØHAUS."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-wide">Apply Now</button>
+      </form>
+    </div>
+  </div>
+</section>
 
   <p class="form-status" aria-live="polite"></p>
 </div>
