@@ -226,115 +226,107 @@
     </section>
 
     <!-- APPLICATION FORM -->
-    <section class="section section-careers-apply">
-      <div class="container section-inner">
-        <div class="section-header">
-          <h2 class="section-title">Apply to the Collective</h2>
-          <div class="divider-red"></div>
-          <p class="section-subtitle">
-            If you believe your work is exceptional, we’d love to see it. Tell us what
-            you’re world-class at, and we’ll reach out if there’s a strong fit.
-          </p>
+    <section id="careers-apply" class="section">
+  <div class="container">
+
+    <div class="card card--form">
+      <p class="kicker">CAREERS</p>
+      <h2>Apply to the Collective</h2>
+      <p class="muted">
+        If your work is exceptional, we’d love to see it. Tell us what you’re world-class at,
+        and we’ll reach out if there’s a strong fit.
+      </p>
+
+      <form id="careersForm" action="https://formspree.io/f/mwverywr" method="POST" class="form">
+        <input type="hidden" name="form_name" value="Careers Application" />
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input id="fullName" name="fullName" type="text" autocomplete="name" required />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required />
+          </div>
         </div>
 
-        <div class="careers-form-wrapper">
-          <!-- If you hook this up later, change action/method or embed a form service -->
-          <form
-  id="careersForm"
-  action="https://formspree.io/f/mwverywr"
-  method="POST"
-  class="form"
->
-  <!-- (Optional but recommended) helps you filter emails -->
-  <input type="hidden" name="form_name" value="Careers Application" />
+        <div class="form-row">
+          <div class="form-group">
+            <label for="role">Role (what are you applying for?)</label>
+            <select id="role" name="role" required>
+              <option value="" selected disabled>Select a role</option>
+              <option>Web Developer</option>
+              <option>UI/UX Designer</option>
+              <option>Brand Designer</option>
+              <option>Shopify Specialist</option>
+              <option>Copywriter</option>
+              <option>Video Editor</option>
+              <option>Social Media / Content</option>
+              <option>Ads / Performance Marketer</option>
+              <option>Other</option>
+            </select>
+          </div>
 
-  <div class="form-row">
-    <div class="form-group">
-      <label for="fullName">Full Name</label>
-      <input id="fullName" name="fullName" type="text" autocomplete="name" required />
-    </div>
-
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input id="email" name="email" type="email" autocomplete="email" required />
-    </div>
-  </div>
-
-  <div class="form-row">
-    <div class="form-group">
-      <label for="role">Role (what are you applying for?)</label>
-      <select id="role" name="role" required>
-        <option value="" selected disabled>Select a role</option>
-        <option>Web Developer</option>
-        <option>UI/UX Designer</option>
-        <option>Brand Designer</option>
-        <option>Shopify Specialist</option>
-        <option>Copywriter</option>
-        <option>Video Editor</option>
-        <option>Social Media / Content</option>
-        <option>Ads / Performance Marketer</option>
-        <option>Other</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="location">Location / Timezone</label>
-      <input id="location" name="location" type="text" placeholder="e.g., Boston (EST), London (GMT)" />
-    </div>
-  </div>
-
-  <div class="form-row">
-    <div class="form-group">
-      <label for="portfolio">Portfolio / Website</label>
-      <input id="portfolio" name="portfolio" type="url" placeholder="https://…" />
-    </div>
-
-    <div class="form-group">
-      <label for="rate">Rate (hourly or project)</label>
-      <input id="rate" name="rate" type="text" placeholder="$50/hr or $1,500/project" />
-    </div>
-  </div>
-
-  <div class="form-row">
-    <div class="form-group">
-      <label for="availability">Availability</label>
-      <select id="availability" name="availability" required>
-        <option value="" selected disabled>Select availability</option>
-        <option>5–10 hrs/week</option>
-        <option>10–20 hrs/week</option>
-        <option>20–30 hrs/week</option>
-        <option>30+ hrs/week</option>
-        <option>Project-based</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="start">Start Date</label>
-      <input id="start" name="start" type="text" placeholder="ASAP / next week / Jan 15" />
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="message">Tell us about you (and what you’re best at)</label>
-    <textarea
-      id="message"
-      name="message"
-      rows="6"
-      placeholder="Quick background, strongest skills, past wins, and what you want to build at MIRRØHAUS."
-      required
-    ></textarea>
-  </div>
-
-  <!-- status messages -->
-  <p id="careersStatus" class="form-status" aria-live="polite"></p>
-
-  <button id="careersSubmit" type="submit" class="btn btn-primary">
-    Apply Now
-  </button>
-</form>
+          <div class="form-group">
+            <label for="location">Location / Timezone</label>
+            <input id="location" name="location" type="text" placeholder="e.g., Boston (EST), London (GMT)" />
+          </div>
         </div>
-      </div>
-    </section>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="portfolio">Portfolio / Website</label>
+            <input id="portfolio" name="portfolio" type="url" placeholder="https://…" />
+          </div>
+
+          <div class="form-group">
+            <label for="rate">Rate (hourly or project)</label>
+            <input id="rate" name="rate" type="text" placeholder="$50/hr or $1,500/project" />
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="availability">Availability</label>
+            <select id="availability" name="availability" required>
+              <option value="" selected disabled>Select availability</option>
+              <option>5–10 hrs/week</option>
+              <option>10–20 hrs/week</option>
+              <option>20–30 hrs/week</option>
+              <option>30+ hrs/week</option>
+              <option>Project-based</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="start">Start Date</label>
+            <input id="start" name="start" type="text" placeholder="ASAP / next week / Jan 15" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Tell us about you (and what you’re best at)</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            placeholder="Quick background, strongest skills, past wins, and what you want to build at MIRRØHAUS."
+            required
+          ></textarea>
+        </div>
+
+        <p id="careersStatus" class="form-status" aria-live="polite"></p>
+
+        <button id="careersSubmit" type="submit" class="btn btn-primary">
+          Apply Now
+        </button>
+      </form>
+    </div>
+
+  </div>
+</section>
 
       <section class="contact-logo">
   <img
@@ -357,5 +349,45 @@
     // simple current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+    <script>
+  (function () {
+    const form = document.getElementById("careersForm");
+    const btn = document.getElementById("careersSubmit");
+    const status = document.getElementById("careersStatus");
+    if (!form || !btn || !status) return;
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      if (btn.dataset.submitting === "true") return;
+      btn.dataset.submitting = "true";
+
+      const originalText = btn.textContent;
+      btn.textContent = "Sending…";
+      btn.disabled = true;
+      status.textContent = "";
+
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: new FormData(form),
+          headers: { Accept: "application/json" },
+        });
+
+        if (res.ok) {
+          form.reset();
+          status.textContent = "✅ Application sent. We’ll be in touch soon.";
+        } else {
+          status.textContent = "⚠️ Something went wrong. Please try again.";
+        }
+      } catch {
+        status.textContent = "⚠️ Network error. Please try again.";
+      } finally {
+        btn.dataset.submitting = "false";
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }
+    });
+  })();
+</script>
 </body>
 </html>
