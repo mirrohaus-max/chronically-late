@@ -727,3 +727,34 @@ a { color: inherit; text-decoration: none; }
 #careersForm button{
   width: 100%;
 }
+
+/* CAREERS: keep copy top-left, center the card */
+#careers-apply .careers-layout{
+  position: relative;
+  display: block;          /* stops the 2-column push */
+}
+
+/* copy stays top-left */
+#careers-apply .careers-copy{
+  max-width: 560px;
+}
+
+/* center the card */
+#careers-apply .careers-card{
+  max-width: 460px;        /* match your contact card width */
+  width: 100%;
+  margin: 28px auto 0;     /* centered */
+}
+
+/* make fields fill the card */
+#careers-apply .careers-card input,
+#careers-apply .careers-card select,
+#careers-apply .careers-card textarea{
+  width: 100%;
+}
+
+/* full-width button like your contact form */
+#careers-apply .careers-card button,
+#careers-apply .careers-card .btn{
+  width: 100%;
+}
