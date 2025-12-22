@@ -723,3 +723,7 @@ a { color: inherit; text-decoration: none; }
 #careersForm{
   max-width: 420px;   /* ← match Contact form */
 }
+
+#careersForm button{
+  width: 100%;
+}
