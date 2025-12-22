@@ -239,60 +239,99 @@
 
         <div class="careers-form-wrapper">
           <!-- If you hook this up later, change action/method or embed a form service -->
-          <form class="careers-form">
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">Name</label>
-                <input id="name" type="text" name="name" required />
-              </div>
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" type="email" name="email" required />
-              </div>
-            </div>
+          <form
+  id="careersForm"
+  action="https://formspree.io/f/mwverywr"
+  method="POST"
+  class="form"
+>
+  <!-- (Optional but recommended) helps you filter emails -->
+  <input type="hidden" name="form_name" value="Careers Application" />
 
-            <div class="form-row">
-              <div class="form-group">
-                <label for="role">Primary Discipline</label>
-                <select id="role" name="role" required>
-                  <option value="">Select one</option>
-                  <option value="creative">Creative</option>
-                  <option value="technical">Technical</option>
-                  <option value="content">Content</option>
-                  <option value="production">Production</option>
-                  <option value="strategy">Strategy</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="location">Location (City, Country)</label>
-                <input id="location" type="text" name="location" />
-              </div>
-            </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="fullName">Full Name</label>
+      <input id="fullName" name="fullName" type="text" autocomplete="name" required />
+    </div>
 
-            <div class="form-group">
-              <label for="portfolio">Portfolio Link</label>
-              <input id="portfolio" type="url" name="portfolio" placeholder="https://…" required />
-            </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" autocomplete="email" required />
+    </div>
+  </div>
 
-            <div class="form-group">
-              <label for="resume">Resume / LinkedIn (optional)</label>
-              <input id="resume" type="url" name="resume" placeholder="https://…" />
-            </div>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="role">Role (what are you applying for?)</label>
+      <select id="role" name="role" required>
+        <option value="" selected disabled>Select a role</option>
+        <option>Web Developer</option>
+        <option>UI/UX Designer</option>
+        <option>Brand Designer</option>
+        <option>Shopify Specialist</option>
+        <option>Copywriter</option>
+        <option>Video Editor</option>
+        <option>Social Media / Content</option>
+        <option>Ads / Performance Marketer</option>
+        <option>Other</option>
+      </select>
+    </div>
 
-            <div class="form-group">
-              <label for="message">Tell us what you’re world-class at</label>
-              <textarea id="message" name="message" rows="4" required></textarea>
-            </div>
+    <div class="form-group">
+      <label for="location">Location / Timezone</label>
+      <input id="location" name="location" type="text" placeholder="e.g., Boston (EST), London (GMT)" />
+    </div>
+  </div>
 
-            <button type="submit" class="btn-pill form-submit">
-              Submit Application
-            </button>
+  <div class="form-row">
+    <div class="form-group">
+      <label for="portfolio">Portfolio / Website</label>
+      <input id="portfolio" name="portfolio" type="url" placeholder="https://…" />
+    </div>
 
-            <p class="form-footnote">
-              We review applications in batches. If there’s a fit, we’ll reach out
-              with next steps and project opportunities.
-            </p>
-          </form>
+    <div class="form-group">
+      <label for="rate">Rate (hourly or project)</label>
+      <input id="rate" name="rate" type="text" placeholder="$50/hr or $1,500/project" />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group">
+      <label for="availability">Availability</label>
+      <select id="availability" name="availability" required>
+        <option value="" selected disabled>Select availability</option>
+        <option>5–10 hrs/week</option>
+        <option>10–20 hrs/week</option>
+        <option>20–30 hrs/week</option>
+        <option>30+ hrs/week</option>
+        <option>Project-based</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="start">Start Date</label>
+      <input id="start" name="start" type="text" placeholder="ASAP / next week / Jan 15" />
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="message">Tell us about you (and what you’re best at)</label>
+    <textarea
+      id="message"
+      name="message"
+      rows="6"
+      placeholder="Quick background, strongest skills, past wins, and what you want to build at MIRRØHAUS."
+      required
+    ></textarea>
+  </div>
+
+  <!-- status messages -->
+  <p id="careersStatus" class="form-status" aria-live="polite"></p>
+
+  <button id="careersSubmit" type="submit" class="btn btn-primary">
+    Apply Now
+  </button>
+</form>
         </div>
       </div>
     </section>
