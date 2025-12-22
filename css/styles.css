@@ -705,3 +705,21 @@ a { color: inherit; text-decoration: none; }
 @keyframes fadeIn {
   to { opacity: 1; }
 }
+
+/* Careers form card sizing */
+#careersForm{
+  width: 100%;
+}
+
+#careersForm .form-group input,
+#careersForm .form-group select,
+#careersForm .form-group textarea{
+  width: 100%;
+}
+
+/* Careers card — match Contact form width */
+.careers-card,
+#careers .card,
+#careersForm{
+  max-width: 420px;   /* ← match Contact form */
+}
