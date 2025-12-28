@@ -624,3 +624,9 @@ header.mh-header[style*="position:sticky"] {
   height: 100%;
   object-fit: cover;
 }
+
+.pill-grid > .card,
+.pill-grid > article,
+.pill-grid > div {
+  border-color: #DD0000;
+}
