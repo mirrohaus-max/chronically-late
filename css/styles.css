@@ -249,7 +249,7 @@ main{ padding-top: 72px; }
   overflow: hidden;
 
   /* was: 96px var(--gutter) 70px */
-  padding: 28px var(--gutter) 70px;
+  padding: 96px var(--gutter) 70px;
 }
 
 .hero-video{
