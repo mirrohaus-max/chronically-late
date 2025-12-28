@@ -27,3 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+// Close mobile nav when a link is clicked
+document.querySelectorAll("#mh-mobile-nav a").forEach((a) => {
+  a.addEventListener("click", () => {
+    document.getElementById("mh-mobile-nav")?.classList.remove("is-open");
+  });
+});
