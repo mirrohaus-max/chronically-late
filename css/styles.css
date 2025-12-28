@@ -725,3 +725,12 @@ img, video, svg { max-width: 100%; height: auto; }
   padding-left: var(--mh-gutter) !important;
   padding-right: var(--mh-gutter) !important;
 }
+
+/* Internal pages: make .card consistent */
+.card{
+  background: rgba(10,10,16,.96);
+  border: 1px solid rgba(221,0,0,.35);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 18px 55px rgba(0,0,0,.65);
+}
