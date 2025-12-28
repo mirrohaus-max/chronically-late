@@ -248,7 +248,8 @@ main{ padding-top: 72px; }
   align-items: center;
   overflow: hidden;
 
-  padding: 96px var(--gutter) 76px;
+  /* was: 96px var(--gutter) 70px */
+  padding: 28px var(--gutter) 70px;
 }
 
 .hero-video{
