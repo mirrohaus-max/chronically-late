@@ -545,3 +545,48 @@ input:focus, select:focus, textarea:focus{
   *{ animation: none !important; transition: none !important; }
 }
 
+/* ===============================
+   PATCH ONLY: margins + dividers + header/hero gap
+   (no layout redesign)
+================================ */
+
+/* 1) Consistent page side margins across ALL pages */
+:root { --gutter: 24px; --max-width: 1120px; }
+
+.page-main,
+main,
+.section,
+.page-section,
+.section-inner,
+.container {
+  max-width: var(--max-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+/* 2) Dividers: make them clearly visible + consistent */
+.hr,
+.divider,
+.section-divider {
+  height: 1px;
+  border: 0;
+  width: 100%;
+  margin: 44px auto;
+  background: rgba(221, 0, 0, 0.55); /* your red, visible but not neon */
+}
+
+/* 3) Remove weird space above the hero (header offset bug) */
+.mh-header { margin: 0; }
+main { padding-top: 0; }
+.hero { margin-top: 0; }
+
+/* If your header is fixed/sticky, keep hero from hiding behind it */
+.mh-header.is-sticky,
+.mh-header.is-fixed,
+header.mh-header[style*="position: fixed"],
+header.mh-header[style*="position:sticky"] {
+  /* adjust if your header is taller/shorter */
+  + main { padding-top: 84px; } /* safe default */
+}
