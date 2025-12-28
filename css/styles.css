@@ -666,3 +666,31 @@ img, video, svg { max-width: 100%; height: auto; }
   * { animation: none !important; transition: none !important; }
   .mh-nav a::after { width: 0 !important; }
 }
+
+/* =========================================================
+   FIX: Align header + page content left edge
+   Paste at END of CSS
+   ========================================================= */
+
+:root{
+  --mh-container: 1200px;   /* same as header */
+  --mh-gutter: 32px;        /* same as header padding */
+}
+
+@media (max-width: 768px){
+  :root{ --mh-gutter: 20px; }
+}
+
+/* ONE container rule for everything */
+.mh-header-inner,
+.section-inner,
+.page-main{
+  max-width: var(--mh-container) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: var(--mh-gutter) !important;
+  padding-right: var(--mh-gutter) !important;
+}
+
+/* Optional: if any section-inner got nested weird, keep it stable */
+.section-inner{ width: 100%; }
