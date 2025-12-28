@@ -694,3 +694,34 @@ img, video, svg { max-width: 100%; height: auto; }
 
 /* Optional: if any section-inner got nested weird, keep it stable */
 .section-inner{ width: 100%; }
+
+/* =========================================================
+   ALIGN INTERNAL PAGES WITH HEADER (about/services/etc)
+   Paste at END of CSS
+   ========================================================= */
+
+:root{
+  --mh-container: 1200px; /* must match header max width */
+  --mh-gutter: 32px;      /* must match header padding */
+}
+
+@media (max-width: 768px){
+  :root{ --mh-gutter: 20px; }
+}
+
+/* Header container */
+.mh-header-inner{
+  max-width: var(--mh-container);
+  margin: 0 auto;
+  padding-left: var(--mh-gutter);
+  padding-right: var(--mh-gutter);
+}
+
+/* Internal page container */
+.page-main{
+  max-width: var(--mh-container) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: var(--mh-gutter) !important;
+  padding-right: var(--mh-gutter) !important;
+}
