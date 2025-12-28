@@ -43,7 +43,7 @@
     </a>
 
     <!-- DESKTOP NAV -->
-    <nav class="mh-nav">
+    <nav class="mh-mobile-nav" id="mh-mobile-nav">
       <a href="about.html" class="mh-nav-link">About Us</a>
       <a href="brands.html" class="mh-nav-link">Brands</a>
       <a href="contact.html" class="mh-nav-link">Contact</a>
@@ -328,40 +328,6 @@ Everything follows one standard: clean, intentional, and built to last.
 
   <script src="js/main.js"></script>
 <script>
-    (function () {
-        const toggle = document.querySelector('.nav-toggle');
-        const drawer = document.querySelector('.nav-drawer');
-
-        if (!toggle || !drawer) return;
-
-        toggle.addEventListener('click', function () {
-            drawer.classList.toggle('is-open');
-            document.body.classList.toggle('nav-open');
-        });
-    })();
-</script>
-<script>
-const toggle = document.querySelector('.nav-toggle');
-const drawer = document.querySelector('.nav-drawer');
-
-toggle.addEventListener('click', () => {
-    drawer.classList.toggle('open');
-});
-</script>
-<script>
-    (function () {
-        const navToggle = document.querySelector('.nav-toggle');
-        const nav = document.querySelector('.nav');
-
-        if (!navToggle || !nav) return;
-
-        navToggle.addEventListener('click', function () {
-            nav.classList.toggle('is-open');
-            navToggle.classList.toggle('is-open');
-        });
-    })();
-</script>
-<script>
 (function(){
   const openBtn = document.getElementById('startProjectBtn');
   const modal = document.getElementById('startProjectModal');
@@ -406,7 +372,6 @@ toggle.addEventListener('click', () => {
   modal.addEventListener('click', e => { if (e.target === modal) close(); });
 })();
 </script>
-first.focus
     
 <div id="startProjectModal" class="mh-modal" role="dialog" aria-modal="true"
      aria-labelledby="sp-title" aria-describedby="sp-desc" hidden>
