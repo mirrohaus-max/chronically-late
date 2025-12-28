@@ -509,13 +509,14 @@ a { color: inherit; text-decoration: none; }
 }
 
 /* full-bleed red line (matches homepage width feel) */
-.page-main :is(.section, .page-section) + :is(.section, .page-section)::before {
+.page-main :is(.section, .page-section)::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
+  left: 0;
+  right: 0;
+  width: 100%;
+  transform: none;
   height: var(--mh-divider-width);
   background: var(--mh-divider-color);
   pointer-events: none;
@@ -530,9 +531,11 @@ a { color: inherit; text-decoration: none; }
 .page-main .has-divider-top::before {
   content: "";
   position: absolute;
-  top: 0; left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  transform: none;
   height: var(--mh-divider-width);
   background: var(--mh-divider-color);
 }
