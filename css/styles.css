@@ -918,3 +918,26 @@ a { color: inherit; text-decoration: none; }
 }
 
 .page-main { overflow-x: hidden; }
+
+:root{
+  --mh-divider-max: var(--max-width); /* uses your site max width */
+  --mh-divider-gutter: 24px;          /* side padding on small screens */
+}
+
+/* contained divider (matches internal pages) */
+.has-divider-top{
+  position: relative;
+}
+
+.has-divider-top::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:50%;
+  transform: translateX(-50%);
+  width: min(calc(100% - (2 * var(--mh-divider-gutter))), var(--mh-divider-max));
+  height: var(--mh-divider-width);
+  background: var(--mh-divider-color);
+  pointer-events:none;
+  z-index:0;
+}
