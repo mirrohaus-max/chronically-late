@@ -941,3 +941,10 @@ a { color: inherit; text-decoration: none; }
   pointer-events:none;
   z-index:0;
 }
+
+.divider{
+  margin: 0 auto;
+  width: min(calc(100% - 48px), var(--max-width));
+  height: var(--mh-divider-width);
+  background: var(--mh-divider-color);
+}
