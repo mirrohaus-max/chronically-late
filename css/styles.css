@@ -727,3 +727,14 @@ header.mh-header[style*="position:sticky"] {
   max-width: none;
   margin: 0;
 }
+
+/* Divider spacing */
+.divider,
+.section-divider,
+hr {
+  margin: 42px 0;   /* increase/decrease to taste */
+}
+
+.page-section{
+  padding-bottom: 42px;
+}
