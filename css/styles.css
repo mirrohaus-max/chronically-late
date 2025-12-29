@@ -645,3 +645,34 @@ header.mh-header[style*="position:sticky"] {
     grid-template-columns: 1fr;
   }
 }
+
+/* ================================
+   MIRRØHAUS: one border rule
+   ================================ */
+:root{
+  --mh-red: #DD0000;
+  --mh-divider: #DD0000; /* matches “thin but visible” */
+}
+
+/* Apply the same 1px red border to ALL card styles used across pages */
+:where(
+  .card,
+  .pill,
+  .pill-card,
+  .brand-card,
+  .retainer-card,
+  .service-card,
+  .form-card,
+  .mh-card
+){
+  border: 1px solid var(--mh-divider) !important;
+  border-radius: 18px;
+}
+
+/* Make dividers match the card border exactly */
+:where(.divider, .section-divider, hr){
+  border: 0;
+  height: 1px;
+  background: var(--mh-divider);
+  opacity: 1;
+}
