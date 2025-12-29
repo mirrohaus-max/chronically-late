@@ -630,3 +630,18 @@ header.mh-header[style*="position:sticky"] {
 .pill-grid > div {
   border-color: #DD0000;
 }
+
+/* Homepage About cards: force side-by-side on desktop */
+.section-about .pill-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  align-items: stretch;
+}
+
+/* Stack cleanly on smaller screens */
+@media (max-width: 960px){
+  .section-about .pill-grid{
+    grid-template-columns: 1fr;
+  }
+}
