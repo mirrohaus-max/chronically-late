@@ -1,255 +1,893 @@
 /* =========================================
    File: /assets/css/site.css
-   MIRRØHAUS — clean, conflict-free core
+   Mirrohaus – Consolidated, de-duped styles
    ========================================= */
 
-/* ---------------- Variables -------------- */
-:root{
+/* ---------- Variables */
+:root {
+  /* Brand + theme */
   --mh-red: #DD0000;
-  --accent: var(--mh-red);
+  --accent: var(--mh-red);            /* single source of truth */
+  --accent-soft: rgba(3, 6, 11, 0.14);
 
   --bg: #03060B;
   --bg-elevated: #050812;
   --bg-soft: #090F1A;
-
   --text: #f7f7f7;
   --muted: #a4a8be;
-
-  --border-subtle: rgba(255,255,255,0.10);
+  --border-subtle: rgba(255,255,255,0.08);
 
   --radius-lg: 18px;
   --radius-pill: 999px;
-
   --max-width: 1120px;
 
-  /* assets */
+  /* Media assets */
   --wm-url: url("../assets/mirrohaus-bg-watermark-transparent.png");
   --noise-url: url("../assets/texture-noise.png");
-
-  /* spacing */
-  --gutter: 24px;
-
-  /* card */
-  --card-bg: rgba(10,10,16,.96);
-  --card-border: 1px solid rgba(255,255,255,.10);
-  --card-radius: var(--radius-lg);
-  --card-shadow: 0 18px 55px rgba(0,0,0,.65);
-
-  /* dividers */
-  --divider: 1px solid rgba(221,0,0,.35);
 }
 
-/* ---------------- Base / Reset ----------- */
+/* ---------- Reset-ish base */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
 
-body{
-  min-height: 100%;
-  color: var(--text);
-  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  -webkit-font-smoothing: antialiased;
-
+html, body {
   background:
     var(--wm-url),
     var(--bg);
   background-size: 1920px 1080px, auto;
   background-repeat: repeat, no-repeat;
   background-attachment: fixed;
+  color: var(--text);
+  font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100%;
 }
 
-a{ color: inherit; text-decoration: none; }
-:focus-visible{ outline: 2px solid var(--accent); outline-offset: 2px; }
+a { color: inherit; text-decoration: none; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-img{ max-width: 100%; height: auto; display: block; }
+.page, .page-main { min-height: 100vh; }
 
-.container{
-  width: min(var(--max-width), calc(100% - (2 * var(--gutter))));
-  margin: 0 auto;
-}
-
-/* ---------------- Header ----------------- */
-.mh-header{
+/* ---------- Header (unified) */
+/* WHY: Multiple header/nav variants existed; these aliases prevent breaking existing markup */
+.site-header,
+.mh-header { 
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 9999;
-
-  background: rgba(0,0,0,.88);
-  border-bottom: 1px solid rgba(255,255,255,.08);
-  backdrop-filter: blur(10px);
+  background: #000;
+  border-bottom: 1px solid #151515;
+  backdrop-filter: blur(8px);
 }
-
-.mh-header-inner{
-  width: min(1200px, calc(100% - (2 * var(--gutter))));
+.site-header-inner,
+.header-inner,
+.mh-header-inner,
+.site-header .header-inner { 
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 14px 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 18px;
+  padding: 16px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+@media (max-width: 768px) {
+  .site-header-inner,
+  .header-inner,
+  .mh-header-inner { padding: 12px 20px; }
 }
 
-.mh-logo-link{
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
+/* Logo */
+.header-logo,
+.mh-logo-link,
+.logo-lockup { display: inline-flex; align-items: center; gap: 8px; }
+.logo-image,
+.mh-logo { display: block; height: 32px; width: auto; }
+@media (min-width: 900px) { .logo-image { height: 32px; } }
 
-.mh-logo{
-  height: 32px;
-  width: auto;
-}
+/* Desktop nav (aliases) */
+.nav,
+.nav-desktop,
+.mh-nav { display: flex; align-items: center; gap: 28px; }
 
-/* Desktop nav */
-.mh-nav{
-  display: flex;
-  align-items: center;
-  gap: 26px;
-}
-
-.mh-nav-link{
+.nav a,
+.nav-desktop a,
+.mh-nav-link,
+.mh-nav a {
   position: relative;
-  font-size: 13px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
+  font-size: 14px;
   color: #f5f5f5;
   padding-bottom: 2px;
+  text-decoration: none;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: color .2s ease;
 }
-
-.mh-nav-link::after{
-  content:"";
-  position:absolute;
-  left: 0;
-  bottom: -6px;
-  width: 0;
-  height: 2px;
+.nav a::after,
+.nav-desktop a::after,
+.mh-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0; bottom: -4px;
+  width: 0; height: 2px;
   background: var(--accent);
-  transition: width .18s ease-out;
+  transition: width .2s ease-out;
 }
-.mh-nav-link:hover::after{ width: 100%; }
+.nav a:hover::after,
+.nav-desktop a:hover::after,
+.mh-nav-link:hover::after { width: 100%; }
 
-/* Burger (mobile only) */
-.mh-burger{
+.nav-link-active { color: var(--accent); }
+
+/* Header CTA */
+.nav-cta,
+.site-nav .header-cta {
+  padding: 0.8rem 2.4rem;
+  margin: 0.25rem;
+  border-radius: var(--radius-pill);
+  line-height: 1.2; font-weight: 600;
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: #fff !important;
+  box-shadow: 0 0 24px rgba(221, 0, 0, 0.45);
+}
+.nav-cta:hover,
+.site-nav .header-cta:hover {
+  background: #ff4040; border-color: #ff4040;
+  box-shadow: 0 0 32px rgba(221, 0, 0, 0.7);
+}
+
+/* Burger (mobile) */
+.nav-toggle,
+.mh-burger {
   display: none;
-  background: none;
-  border: 0;
-  padding: 0;
-  cursor: pointer;
-
-  flex-direction: column;
-  gap: 5px;
+  background: none; border: 0; padding: 0; cursor: pointer;
+  flex-direction: column; gap: 4px;
 }
-
-.mh-burger span{
-  display:block;
-  width: 24px;
-  height: 2px;
-  background: #f5f5f5;
-  border-radius: 999px;
+.nav-toggle span,
+.mh-burger span {
+  display: block; width: 24px; height: 2px;
+  border-radius: 999px; background: #f5f5f5;
   transition: transform .18s ease-out, opacity .18s ease-out;
 }
+/* X animation */
+.nav-toggle.is-open span:nth-child(1) { transform: translateY(3px) rotate(45deg); }
+.nav-toggle.is-open span:nth-child(2) { transform: translateY(-3px) rotate(-45deg); }
 
-.mh-burger.is-open span:nth-child(1){ transform: translateY(3px) rotate(45deg); }
-.mh-burger.is-open span:nth-child(2){ opacity: 0; }
-.mh-burger.is-open span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+@media (max-width: 768px) {
+  .nav, .nav-desktop, .mh-nav { display: none; } /* hide desktop nav */
+  .nav-toggle, .mh-burger { display: inline-flex; }
+}
 
-/* Mobile drawer nav */
-#mh-mobile-nav{
-  position: fixed;
-  right: var(--gutter);
-  top: 64px;
-
-  display: none;
-  flex-direction: column;
-  gap: 12px;
-
-  background: rgba(5,5,5,.95);
-  border: 1px solid rgba(255,255,255,.10);
-  border-radius: 16px;
-  padding: 14px 16px;
+/* Drawer (mobile) */
+.nav,
+.mh-mobile-nav {
+  position: fixed; right: 20px; top: 64px;
+  display: none; flex-direction: column; gap: 12px;
+  background: #050505; border-radius: 16px;
+  padding: 16px 20px;
   box-shadow: 0 18px 45px rgba(0,0,0,.75);
-  z-index: 9998;
+  z-index: 20;
 }
+.nav.is-open,
+.mh-mobile-nav.is-open { display: flex; }
 
-#mh-mobile-nav.is-open{ display: flex; }
-
-.mh-mobile-link{
-  font-size: 14px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  padding: 10px 10px;
-  border-radius: 12px;
+.mh-mobile-link,
+.nav a {
+  font-size: 15px; color: #f5f5f5; text-decoration: none;
 }
-.mh-mobile-link:hover{
-  background: rgba(255,255,255,.06);
-  color: var(--accent);
-}
+.mh-mobile-link:hover { background: #111; color: var(--accent); }
 
-/* Header responsive */
-@media (max-width: 768px){
-  .mh-nav{ display: none; }
-  .mh-burger{ display: inline-flex; }
-}
-
-/* Give page content room under fixed header */
-.page,
-main{ padding-top: 72px; }
-
-/* ---------------- Buttons ---------------- */
-.btn{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-
-  padding: 10px 20px;
-  border-radius: var(--radius-pill);
-  font-size: .9rem;
-  font-weight: 600;
-
-  border: 1px solid transparent;
-  cursor: pointer;
-
-  transition: transform .12s ease-out, box-shadow .12s ease-out,
-              background .18s ease-out, border-color .18s ease-out, color .18s ease-out;
-}
-
-.btn-primary{
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #fff !important;
-  box-shadow: 0 0 24px rgba(221,0,0,.35);
-}
-.btn-primary:hover{
-  background: #ff3434;
-  border-color: #ff3434;
-  transform: translateY(-2px);
-}
-
-.btn-outline,
-.btn-ghost{
-  background: transparent;
-  border-color: rgba(221,0,0,.65);
-  color: var(--accent);
-}
-.btn-outline:hover,
-.btn-ghost:hover{
-  background: rgba(221,0,0,.12);
-  color: #fff;
-}
-
-.btn-full{ width: 100%; }
-
-/* ---------------- Hero ------------------- */
-.hero{
+/* ---------- Hero (single source) */
+.hero {
   position: relative;
-  min-height: 72vh;
+  padding: 80px 24px 64px;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(3,6,11,.28), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(3,6,11,.18), transparent 60%);
+  opacity: .66; pointer-events: none;
+}
+.hero-video { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.hero-video video {
+  width: 100%; height: 100%; object-fit: cover;
+  filter: saturate(1.2) contrast(1.1) brightness(0.45);
+}
+
+.hero-inner {
+  position: relative; z-index: 1;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 40px 40px 32px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  background:
+    linear-gradient(135deg, rgba(8,8,14,.96), rgba(10,10,18,.98)),
+    var(--noise-url);
+  background-blend-mode: overlay;
+  box-shadow:
+    0 28px 80px rgba(0,0,0,.9),
+    0 0 0 1px rgba(255,255,255,.02);
+}
+.eyebrow, .hero-inner .eyebrow {
+  font-size: .78rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px;
+}
+.hero-inner h1 { font-size: clamp(2.1rem, 4vw, 3.4rem); line-height: 1.1; margin: 0 0 16px; }
+.hero-copy { max-width: 540px; color: var(--muted); margin: 0 0 24px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+@media (max-width: 768px) {
+  .hero { padding: 72px 16px 48px; }
+  .hero-inner { padding: 28px 22px 24px; }
+  .hero-inner h1 { font-size: 2.1rem; }
+  .hero-actions { flex-direction: column; align-items: flex-start; }
+}
+
+/* ---------- Buttons (unified) */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 6px; padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  font-size: .9rem; font-weight: 500;
+  cursor: pointer; border: 1px solid transparent;
+  transition: background .18s ease-out, color .18s ease-out, border-color .18s ease-out,
+              transform .12s ease-out, box-shadow .12s ease-out;
+}
+.btn-primary,
+.hero-actions .btn-primary {
+  background: var(--accent); color: #fff !important; border-color: var(--accent);
+  box-shadow: 0 20px 55px rgba(0,0,0,.95), 0 0 0 1px rgba(255,255,255,.08);
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 28px 80px rgba(0,0,0,.98), 0 0 0 1px rgba(255,255,255,.16); }
+
+.btn-ghost,
+.btn-outline,
+.hero-actions .btn-ghost {
+  background: transparent; color: var(--accent);
+  border: 1px solid var(--accent);
+}
+.btn-ghost:hover,
+.btn-outline:hover { background: rgba(221,0,0,0.12); color: #fff; border-color: var(--accent); }
+
+.btn-full { width: 100%; justify-content: center; }
+
+/* ---------- Sections + watermark/dividers */
+.section { padding: 72px 16px; position: relative; overflow: hidden; }
+.section + .section { border-top: 1px solid var(--accent); }
+
+.section:not(.hero)::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image: var(--wm-url);
+  background-repeat: no-repeat; background-position: center; background-size: 480px auto;
+  opacity: 0.04; pointer-events: none; z-index: 0;
+}
+.section-inner { position: relative; z-index: 1; max-width: var(--max-width); margin: 0 auto; }
+
+.section-label { font-size: .76rem; letter-spacing: .24em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.section h2 { font-size: 1.8rem; margin: 0 0 16px; }
+.section p { font-size: .98rem; line-height: 1.7; color: var(--muted); }
+
+/* ---------- About / Pills */
+.section-about p { max-width: 640px; }
+.pill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 28px; }
+.pill {
+  padding: 18px; border-radius: var(--radius-lg);
+  background: radial-gradient(circle at top left, rgba(3,6,11,.16), transparent 55%), rgba(10,10,16,.96);
+  border: 1px solid var(--border-subtle);
+}
+.pill h3 { font-size: 1rem; margin: 0 0 6px; }
+.pill p { font-size: .9rem; }
+
+/* ---------- Brands (deduped) */
+.section-brands p { max-width: 640px; }
+.brand-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; margin-top: 24px; }
+.brand-card {
+  padding: 18px 18px 20px; border-radius: var(--radius-lg);
+  background: rgba(10,10,16,.96); border: 1px solid var(--border-subtle);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.brand-card h3 { margin: 0; font-size: 1.02rem; }
+.brand-card p { font-size: .9rem; margin: 0 0 4px; }
+.brand-link { font-size: .85rem; color: var(--accent); margin-top: 4px; }
+.brand-link.disabled { color: var(--muted); cursor: default; }
+.brand-link:not(.disabled):hover { text-decoration: underline; }
+.section-footnote { margin-top: 18px; font-size: .86rem; }
+
+/* ---------- Work */
+.section-work p { max-width: 640px; }
+.work-grid { display: grid; grid-template-columns: minmax(0,1.4fr) minmax(0,1.1fr); gap: 18px; margin-top: 24px; }
+@media (max-width: 840px) { .work-grid { grid-template-columns: 1fr; } }
+.work-card {
+  padding: 18px; border-radius: var(--radius-lg);
+  background: rgba(10,10,16,.96); border: 1px solid var(--border-subtle);
+  display: flex; flex-direction: column; gap: 8px;
+}
+.work-card h3 { margin: 0; font-size: 1rem; }
+.work-card p { margin: 0 0 4px; font-size: .9rem; }
+.work-link { font-size: .85rem; color: var(--accent); margin-top: 4px; }
+.work-link:hover { text-decoration: underline; }
+.work-tag {
+  display: inline-flex; align-items: center;
+  padding: 4px 10px; border-radius: var(--radius-pill);
+  border: 1px solid rgba(255,255,255,.18);
+  font-size: .78rem; color: var(--muted);
+}
+
+/* ---------- Founder */
+.section-founder p { max-width: 640px; }
+.founder-layout { display: grid; grid-template-columns: minmax(0,1.6fr) minmax(0,1fr); gap: 24px; }
+@media (max-width: 840px) { .founder-layout { grid-template-columns: 1fr; } }
+.founder-title { font-size: .9rem; color: var(--muted); margin-top: -4px; }
+.founder-card {
+  padding: 18px; border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle); background: rgba(10,10,16,.96);
+}
+.founder-card .founder-tag {
+  font-size: .8rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px;
+}
+.founder-card ul { list-style: none; padding: 0; margin: 0; font-size: .9rem; color: var(--muted); }
+.founder-card li { padding-left: 14px; position: relative; margin-bottom: 8px; }
+.founder-card li::before { content: "–"; position: absolute; left: 0; color: var(--accent); }
+
+/* ---------- Contact */
+.section-contact { position: relative; }
+.section-contact::before {
+  content: ""; position: absolute; left: -160px; bottom: -220px;
+  width: 620px; height: 620px;
+  background: var(--wm-url) no-repeat center/contain;
+  opacity: .08; pointer-events: none; z-index: 0;
+}
+.section-contact .section-inner { position: relative; z-index: 1; }
+
+.contact-layout { display: grid; grid-template-columns: minmax(0,1.5fr) minmax(0,1.1fr); gap: 22px; align-items: center; }
+@media (max-width: 840px) { .contact-layout { grid-template-columns: 1fr; } }
+
+.contact-card {
+  padding: 18px; border-radius: var(--radius-lg);
+  background: rgba(10,10,16,.96); border: 1px solid var(--border-subtle);
+  color: #f5f5f7;
+}
+.contact-line { display: flex; justify-content: space-between; gap: 16px; font-size: .95rem; margin: 0 0 8px; }
+.contact-line span {
+  color: #8b8b8f; text-transform: uppercase; letter-spacing: .08em; font-size: .75rem; min-width: 3.5rem;
+}
+.contact-line a { color: #fff; }
+.contact-line a:hover { color: var(--accent); }
+
+.contact-logo { text-align: center; padding: 40px 0 10px; }
+.contact-logo img { max-width: 720px; width: 80%; height: auto; }
+
+/* ---------- Footer */
+.site-footer {
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding: 18px 24px 28px; font-size: .8rem; color: var(--muted); text-align: center;
+}
+.footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 1.5rem; padding: 1.25rem 0; font-size: .85rem; }
+.footer-left { display: flex; flex-direction: column; gap: .25rem; }
+.footer-tagline { opacity: .8; }
+.footer-right { display: flex; align-items: center; gap: 1rem; }
+.footer-link {
+  text-decoration: none; font-size: .85rem; letter-spacing: .08em; text-transform: uppercase;
+  color: #d0d0d5; border-bottom: 1px solid transparent; padding-bottom: 2px; transition: color .2s, border-color .2s;
+}
+.footer-link:hover { color: var(--accent); border-color: var(--accent); }
+@media (max-width: 700px) {
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .footer-right { align-self: stretch; }
+}
+
+/* ---------- Pages (shared) */
+.page-main { max-width: 1200px; margin: 0 auto; padding: 6rem 1.5rem 5rem; } /* extra top to clear fixed header */
+.page-hero { max-width: 650px; margin-bottom: 3rem; }
+.page-hero h1 { font-size: 2.4rem; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 1rem; }
+.page-hero p { color: #cfcfcf; line-height: 1.7; }
+
+.page-section { margin-bottom: 3rem; }
+.page-section h2 { font-size: 1.3rem; text-transform: uppercase; letter-spacing: .12em; margin-bottom: .75rem; }
+.page-section p { color: #d0d0d0; line-height: 1.7; max-width: 720px; }
+
+.page-list { list-style: none; padding-left: 0; margin-top: 1rem; }
+.page-list li { margin-bottom: .4rem; color: #c5c5c5; }
+
+/* Subtle red divider between page sections */
+.page-section + .page-section { border-top: 1px solid rgba(221,0,0,.22); padding-top: 2.75rem; margin-top: 2.75rem; }
+
+/* ---------- Grids / Cards (shared) */
+.retainer-grid,
+.brand-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+.retainer-card,
+.brand-card { border: 1px solid #222; background: #050505; padding: 1.5rem; border-radius: .75rem; }
+
+.retainer-tag { text-transform: uppercase; letter-spacing: .16em; font-size: .7rem; color: rgba(255,255,255,.7); margin-bottom: .4rem; }
+.retainer-desc { margin-bottom: .9rem; color: #c7c7c7; }
+
+/* ---------- Split section / CTA */
+.page-section-split { display: grid; grid-template-columns: minmax(0,1.6fr) minmax(0,1.2fr); gap: 2.5rem; align-items: flex-start; }
+.split-main p { max-width: 700px; }
+.split-accent {
+  border: 1px solid rgba(221,0,0,.4);
+  background: radial-gradient(circle at top left, #1a0202 0, #050505 55%);
+  padding: 1.6rem 1.8rem; border-radius: .9rem;
+}
+.split-kicker { text-transform: uppercase; letter-spacing: .16em; font-size: .7rem; color: rgba(255,255,255,.75); margin-bottom: .6rem; }
+
+.page-cta { border-top: 1px solid rgba(221,0,0,.3); margin-top: 3rem; padding-top: 3rem; }
+.page-cta-inner {
+  border-radius: 999px; border: 1px solid rgba(221,0,0,.4); padding: 1.5rem 2.25rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+  background: radial-gradient(circle at left, #1a0202 0, #050505 48%, #000 100%);
+}
+.page-cta-inner h2 { margin: 0; }
+.page-cta-inner p { margin: 0; max-width: 520px; color: #d6d6d6; }
+.page-cta-button {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: .7rem 2.4rem; border-radius: 999px; border: 1px solid transparent;
+  background: var(--accent); color: #fff; font-size: .8rem;
+  text-transform: uppercase; letter-spacing: .18em; white-space: nowrap;
+}
+.page-cta-button:hover { background: #ff3434; }
+
+/* ---------- Careers */
+.mh-divider-top { border-top: 1px solid rgba(221,0,0,.35); margin-top: 3rem; padding-top: 3rem; }
+.section-hero-careers { padding-top: 5rem; padding-bottom: 3rem; }
+.careers-intro { max-width: 640px; }
+
+.grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.75rem; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.75rem; }
+@media (max-width: 900px) { .grid-3, .grid-2, .page-section-split { grid-template-columns: 1fr; } .page-cta-inner { flex-direction: column; align-items: flex-start; border-radius: 1.25rem; } .page-cta-button { width: 100%; justify-content: center; } }
+
+.section-roles { background: #050509; }
+.section-roles .section-title, .section-roles .section-subtitle { color: #fff; }
+.roles-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.5rem; }
+.role-card { border: 1px solid var(--accent); border-radius: 1.25rem; padding: 1.5rem 1.75rem; background: rgba(3,6,11,.9); }
+.role-title { font-size: 1.1rem; font-weight: 600; margin-bottom: .5rem; color: #fff; }
+.role-text { font-size: .95rem; color: #d0d0d5; }
+@media (max-width: 900px) { .roles-grid { grid-template-columns: 1fr; } }
+
+.section-careers-form { background: #03060b; }
+.section-careers-form .section-title, .section-careers-form .section-subtitle { color: #fff; }
+
+.careers-form-wrapper { max-width: 720px; margin: 0 auto; }
+.careers-form {
+  background: #05060a; border-radius: 1.5rem; padding: 2rem;
+  border: 1px solid rgba(221,0,0,.4);
+}
+.form-row { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.form-group { flex: 1; display: flex; flex-direction: column; margin-bottom: 1.25rem; }
+.form-group label {
+  font-size: .85rem; text-transform: uppercase; letter-spacing: .08em;
+  margin-bottom: .4rem; color: #d0d0d5;
+}
+.form-group input, .form-group select, .form-group textarea {
+  background: #020308; border: 1px solid #262633; border-radius: .75rem;
+  padding: .75rem .9rem; color: #fff; font-size: .95rem; outline: none;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--accent); }
+.form-submit { margin-top: .5rem; width: 100%; text-align: center; }
+.form-footnote { margin-top: .75rem; font-size: .8rem; color: #9a9aaa; }
+
+/* ---------- Utilities */
+.btn-primary:link, .btn-primary:visited { color: #fff !important; }
+.page-hero-kicker { text-transform: uppercase; letter-spacing: .18em; font-size: .75rem; color: #ff4b4b; margin-bottom: .5rem; }
+
+/* ---------- Animations */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+.retainer-card { position: relative; overflow: hidden; animation: fadeInUp .6s ease-out both; opacity: 0; }
+.retainer-card:nth-child(2) { animation-delay: .08s; }
+.retainer-card:nth-child(3) { animation-delay: .16s; }
+
+/* ---------- Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+  .nav a::after, .mh-nav-link::after { width: 0 !important; }
+}
+
+/* =========================================================
+   APPEND THIS TO THE VERY END OF styles.css
+   Full-bleed dividers for internal pages only (.page-main)
+   Keep homepage dividers exactly as-is.
+   ========================================================= */
+
+/* brand vars */
+:root {
+  --mh-divider-color: var(--mh-red, #DD0000);
+  --mh-divider-width: 1px;
+}
+
+/* INTERNAL PAGES ONLY (scoped to .page-main) */
+.page-main :is(.section, .page-section) {
+  overflow: visible;        /* prevent clipping pseudo line */
+  isolation: isolate;       /* keep stacking sane */
+  border-top: none;         /* ignore any short borders inside page-main */
+}
+
+/* adjacent sections on internal pages */
+.page-main :is(.section, .page-section) + :is(.section, .page-section) {
+  position: relative;
+}
+
+/* full-bleed red line (matches homepage width feel) */
+.page-main :is(.section, .page-section)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  transform: none;
+  height: var(--mh-divider-width);
+  background: var(--mh-divider-color);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* no divider immediately after a hero on internal pages */
+.page-main .hero + :is(.section, .page-section)::before { display: none; }
+
+/* optional utilities (internal pages) */
+.page-main .has-divider-top { position: relative; }
+.page-main .has-divider-top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  transform: none;
+  height: var(--mh-divider-width);
+  background: var(--mh-divider-color);
+}
+.page-main .no-divider-top::before { display: none !important; }
+
+/* spacing around the line on internal pages */
+.page-main :is(.section, .page-section) + :is(.section, .page-section),
+.page-main .has-divider-top {
+  padding-top: clamp(2.25rem, 3.5vw, 3rem);
+  margin-top: clamp(2.25rem, 3.5vw, 3rem);
+}
+
+/* ---------------- HOMEPAGE SAFETY SHIM ---------------- */
+/* If some earlier global rule removed borders everywhere,
+   this restores the homepage’s original thin red divider. */
+@supports(selector(body:not(:has(.page-main)))) {
+  body:not(:has(.page-main)) .section + .section {
+    border-top: var(--mh-divider-width) solid var(--mh-divider-color);
+  }
+}
+/* Fallback if :has() isn't available: keep your existing
+   .section + .section { border-top: 1px solid #DD0000; } rule untouched. */
+
+/* =========================================================
+   Unified red borders for all "cards" — append to END
+   ========================================================= */
+
+/* Tokens */
+:root{
+  --mh-card-border-color: var(--mh-red, #DD0000);
+  --mh-card-border-width: 1px;
+  --mh-card-radius: var(--radius-lg, 18px);
+}
+
+/* Apply the Careers red outline to all card-like components */
+:is(
+  .brand-card,
+  .work-card,
+  .retainer-card,
+  .contact-card,
+  .pill,
+  .role-card,
+  .founder-card
+),
+/* Utility opt-in for any new card */
+.mh-card--red {
+  border: var(--mh-card-border-width) solid var(--mh-card-border-color) !important;
+  border-radius: var(--mh-card-radius) !important;
+}
+
+/* Optional: subtle interaction to match Careers feel */
+:is(
+  .brand-card,
+  .work-card,
+  .retainer-card,
+  .contact-card,
+  .careers-card,
+  .pill,
+  .role-card,
+  .founder-card,
+  .mh-card--red
+):is(:hover, :focus-within){
+  box-shadow: 0 0 0 1px rgba(221,0,0,0.25) inset;
+}
+
+/* Modal – minimal, brand-matched */
+.mh-modal-open { overflow: hidden; }
+.mh-modal[aria-modal="true"] { position: fixed; inset: 0; z-index: 10000; }
+.mh-modal__backdrop { position: absolute; inset: 0; background: rgba(0,0,0,.6); backdrop-filter: blur(2px); }
+
+.mh-modal__dialog {
+  position: relative;
+  width: min(720px, calc(100vw - 32px));
+  margin: 8vh auto 0;
+  border-radius: var(--radius-lg, 18px);
+  background: rgba(10,10,16,.96);
+  border: 1px solid var(--mh-red, #DD0000);
+  box-shadow: 0 28px 80px rgba(0,0,0,.9);
+  padding: 1.25rem;
+}
+
+.mh-modal__close {
+  position: absolute; top: 8px; right: 8px;
+  width: 36px; height: 36px; border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14); background: #000; color: #fff; cursor: pointer;
+}
+.mh-modal__close:hover { border-color: var(--mh-red, #DD0000); }
+
+.mh-modal__header { padding: .25rem .25rem .5rem; }
+.mh-modal__sub { margin: 0 0 .75rem; color: var(--muted, #a4a8be); }
+
+/* Reuse your contact form look */
+.mh-modal .contact-form .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 1.25rem; }
+.mh-modal .contact-form .form-row:nth-child(n+3) { grid-template-columns: 1fr; }
+
+.mh-modal .contact-form label {
+  display: block; font-size: .8rem; text-transform: uppercase;
+  letter-spacing: .12em; margin-bottom: .45rem; color: #d0d0d5;
+}
+.mh-modal .contact-form input,
+.mh-modal .contact-form textarea {
+  width: 100%; padding: .75rem .9rem; background: #050505;
+  border-radius: .6rem; border: 1px solid #222; color: #f5f5f5;
+}
+.mh-modal .contact-form input:focus,
+.mh-modal .contact-form textarea:focus {
+  outline: none; border-color: var(--mh-red, #DD0000);
+  box-shadow: 0 0 0 2px rgba(221,0,0,.15);
+}
+.mh-modal .contact-form .form-submit { margin-top: .25rem; }
+.mh-modal .btn.btn-full { width: 100%; }
+
+@media (max-width: 700px) {
+  .mh-modal__dialog { margin-top: 6vh; padding: 1rem; }
+  .mh-modal .contact-form .form-row { grid-template-columns: 1fr; }
+}
+
+/* === Brands cards: match other cards' background === */
+:root {
+  /* same tone used on work/contact cards */
+  --mh-card-bg: rgba(10, 10, 16, 0.96);
+}
+
+.brand-card {
+  background: var(--mh-card-bg) !important;      /* force match */
+  border-radius: var(--radius-lg, 18px) !important;
+  border: 1px solid var(--mh-red, #DD0000) !important; /* keep red outline */
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.45);
+}
+
+/* optional: make inner text feel the same as other cards */
+.brand-card h3 { color: #ffffff; }
+.brand-card p  { color: #c7c7c7; }
+
+/* Founder image sizing – controlled, not shrunk */
+.founder-media img {
+  width: 100%;
+  max-width: 360px;      /* controls on-page size */
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 16px;
+  display: block;
+}
+
+.mh-form { display: grid; gap: 12px; }
+
+.mh-label { display: grid; gap: 6px; }
+
+.mh-form input,
+.mh-form textarea {
+  width: 100%;
+  background: var(--bg-elevated, #050812);
+  border: 1px solid var(--border-subtle, rgba(255,255,255,0.08));
+  color: var(--text, #f7f7f7);
+  padding: 12px 14px;
+  border-radius: 14px;
+}
+
+.mh-form input:focus,
+.mh-form textarea:focus {
+  outline: none;
+  border-color: var(--accent, #DD0000);
+}
+
+.form-status {
+  opacity: 0;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Careers form card sizing */
+#careersForm{
+  width: 100%;
+  border: 1px solid #DD0000;
+  border-radius: 18px;
+  padding: 26px;
+}
+
+#careersForm .form-group input,
+#careersForm .form-group select,
+#careersForm .form-group textarea{
+  width: 100%;
+}
+
+/* Careers card — match Contact form width */
+.careers-card,
+#careers .card,
+#careersForm{
+  max-width: 420px;   /* ← match Contact form */
+}
+
+#careersForm button{
+  width: 100%;
+}
+
+/* CAREERS: keep copy top-left, center the card */
+#careers-apply .careers-layout{
+  position: relative;
+  display: block;          /* stops the 2-column push */
+}
+
+/* copy stays top-left */
+#careers-apply .careers-copy{
+  max-width: 560px;
+}
+
+/* center the card */
+#careers-apply .careers-card{
+  max-width: 460px;        /* match your contact card width */
+  width: 100%;
+  margin: 28px auto 0;     /* centered */
+}
+
+/* make fields fill the card */
+#careers-apply .careers-card input,
+#careers-apply .careers-card select,
+#careers-apply .careers-card textarea{
+  width: 100%;
+}
+
+/* full-width button like your contact form */
+#careers-apply .careers-card button,
+#careers-apply .careers-card .btn{
+  width: 100%;
+}
+
+.brand-spotlight__title{ min-width: 240px; }
+
+.brand-spotlight__logo{
   display: flex;
   align-items: center;
-  overflow: hidden;
+  justify-content: flex-end;
+}
 
-  /* was: 96px var(--gutter) 70px */
-  padding: 96px var(--gutter) 70px;
+.brand-spotlight__logo img{
+  max-width: 140px;
+  max-height: 44px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  opacity: 0.95;
+}
+
+/* =========================================================
+   FIX: Unified card system + Careers form uses it correctly
+   Paste at END of file
+   ========================================================= */
+
+:root{
+  --mh-card-bg: rgba(10,10,16,.96);
+  --mh-card-border: 1px solid rgba(221,0,0,.40);  /* softer + consistent */
+  --mh-card-radius: var(--radius-lg, 18px);
+  --mh-card-shadow: 0 18px 55px rgba(0,0,0,.65);
+}
+
+/* One true "card" look */
+:is(
+  .contact-card,
+  .careers-card,
+  .brand-card,
+  .work-card,
+  .retainer-card,
+  .pill,
+  .founder-card,
+  .role-card,
+  .mh-card--red
+){
+  background: var(--mh-card-bg) !important;
+  border: var(--mh-card-border) !important;
+  border-radius: var(--mh-card-radius) !important;
+  box-shadow: var(--mh-card-shadow);
+}
+
+/* Kill the fake “border-on-hover” look (that inset outline reads as a new border) */
+:is(
+  .contact-card,
+  .careers-card,
+  .brand-card,
+  .work-card,
+  .retainer-card,
+  .pill,
+  .founder-card,
+  .role-card,
+  .mh-card--red
+):is(:hover, :focus-within){
+  box-shadow: var(--mh-card-shadow);
+}
+
+/* -----------------------------------------
+   CAREERS: layout + make wrapper the card
+   ----------------------------------------- */
+#careers-apply .careers-layout{
+  display: block;          /* copy stays top-left */
+}
+
+#careers-apply .careers-copy{
+  max-width: 560px;
+}
+
+/* Center the card under the copy */
+#careers-apply .careers-card{
+  width: min(420px, 100%);
+  margin: 28px auto 0;
+  padding: 26px;           /* card padding belongs here */
+}
+
+/* The FORM is NOT a card */
+#careersForm{
+  border: 0 !important;
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  width: 100%;
+}
+
+/* Careers fields match your existing form feel */
+#careersForm .form-group input,
+#careersForm .form-group select,
+#careersForm .form-group textarea{
+  width: 100%;
+  background: var(--bg-elevated, #050812);
+  border: 1px solid var(--border-subtle, rgba(255,255,255,0.08));
+  color: var(--text, #f7f7f7);
+  padding: 12px 14px;
+  border-radius: 14px;
+  outline: none;
+}
+
+#careersForm .form-group input:focus,
+#careersForm .form-group select:focus,
+#careersForm .form-group textarea:focus{
+  border-color: var(--accent, #DD0000);
+}
+
+/* Full-width submit button */
+#careersForm button,
+#careersForm .btn{
+  width: 100%;
+}
+
+.hero{
+  position: relative;
+  min-height: 67vh;              /* <-- main change */
+  padding: 110px 24px 80px;      /* more breathing room */
+  display: flex;
+  align-items: center;           /* vertically centers the card */
+  overflow: hidden;
 }
 
 .hero-video{
@@ -258,483 +896,55 @@ main{ padding-top: 72px; }
   z-index: 0;
   pointer-events: none;
 }
+
 .hero-video video{
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(1.15) contrast(1.08) brightness(0.55);
-}
-
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:0;
-  background:
-    radial-gradient(circle at top left, rgba(3,6,11,.35), transparent 55%),
-    radial-gradient(circle at bottom right, rgba(3,6,11,.22), transparent 60%);
-}
-
-.hero-inner{
-  position: relative;
-  z-index: 1;
-
-  width: min(var(--max-width), calc(100% - (2 * var(--gutter))));
-  margin: 0 auto;
-
-  padding: 38px 40px 30px;
-  border-radius: var(--radius-lg);
-
-  background:
-    linear-gradient(135deg, rgba(8,8,14,.96), rgba(10,10,18,.98)),
-    var(--noise-url);
-  background-blend-mode: overlay;
-
-  border: 1px solid rgba(221,0,0,.55);
-  box-shadow: 0 28px 80px rgba(0,0,0,.9);
-}
-
-.eyebrow{
-  font-size: .78rem;
-  letter-spacing: .18em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin: 0 0 12px;
-}
-
-.hero-inner h1{
-  font-size: clamp(2.1rem, 4vw, 3.4rem);
-  line-height: 1.08;
-  margin: 0 0 16px;
-}
-
-.hero-copy{
-  max-width: 560px;
-  color: var(--muted);
-  margin: 0 0 22px;
-}
-
-.hero-actions{
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
 }
 
 @media (max-width: 768px){
-  .hero{ min-height: 78vh; padding: 90px 16px 56px; }
-  .hero-inner{ padding: 28px 22px 22px; }
-  .hero-actions{ flex-direction: column; align-items: flex-start; }
+  .hero{
+    min-height: 78vh;
+    padding: 92px 16px 56px;
+  }
 }
 
-/* ---------------- Sections --------------- */
-.section{
+.hero-inner{
+  border: 1px solid rgba(221,0,0,.55);
+  box-shadow:
+    0 28px 80px rgba(0,0,0,.9),
+    0 0 0 1px rgba(221,0,0,.18) inset;
+}
+
+.page-main { overflow-x: hidden; }
+
+:root{
+  --mh-divider-max: var(--max-width); /* uses your site max width */
+  --mh-divider-gutter: 24px;          /* side padding on small screens */
+}
+
+/* contained divider (matches internal pages) */
+.has-divider-top{
   position: relative;
-  padding: 72px var(--gutter);
-  overflow: hidden;
 }
 
-/* thin red divider like your homepage */
-.section + .section{
-  border-top: var(--divider);
-}
-
-.section-inner{
-  width: min(var(--max-width), calc(100% - (2 * var(--gutter))));
-  margin: 0 auto;
-}
-
-.section:not(.hero)::before{
+.has-divider-top::before{
   content:"";
   position:absolute;
-  inset:0;
-  background-image: var(--wm-url);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 480px auto;
-  opacity: 0.04;
-  pointer-events: none;
-  z-index: 0;
+  top:0;
+  left:50%;
+  transform: translateX(-50%);
+  width: min(calc(100% - (2 * var(--mh-divider-gutter))), var(--mh-divider-max));
+  height: var(--mh-divider-width);
+  background: var(--mh-divider-color);
+  pointer-events:none;
+  z-index:0;
 }
 
-.section-inner{ position: relative; z-index: 1; }
-
-.section-label{
-  font-size: .76rem;
-  letter-spacing: .24em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin: 0 0 12px;
-}
-
-.section h2{
-  font-size: 1.8rem;
-  margin: 0 0 16px;
-}
-
-.section p{
-  font-size: .98rem;
-  line-height: 1.7;
-  color: var(--muted);
-}
-
-/* ---------------- Cards / Grids ---------- */
-/* one true card system */
-.card,
-.pill,
-.brand-card,
-.work-card,
-.retainer-card,
-.role-card,
-.founder-card,
-.contact-card,
-.careers-card{
-  background: var(--card-bg);
-  border: var(--card-border);
-  border-radius: var(--card-radius);
-  box-shadow: var(--card-shadow);
-}
-
-/* optional "signature" red outline version */
-.mh-card--red{
-  border: 1px solid rgba(221,0,0,.45);
-}
-
-/* keep hover subtle (no fake second border) */
-.card:hover,
-.pill:hover,
-.brand-card:hover,
-.work-card:hover,
-.retainer-card:hover,
-.role-card:hover,
-.founder-card:hover,
-.contact-card:hover,
-.careers-card:hover{
-  transform: translateY(-1px);
-  transition: transform .12s ease-out;
-}
-
-/* grids */
-.grid-2{
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0,1fr));
-  gap: 18px;
-}
-.grid-3{
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0,1fr));
-  gap: 18px;
-}
-@media (max-width: 900px){
-  .grid-2, .grid-3{ grid-template-columns: 1fr; }
-}
-
-/* card padding defaults */
-.card,
-.brand-card,
-.work-card,
-.retainer-card,
-.role-card,
-.founder-card,
-.contact-card,
-.careers-card,
-.pill{
-  padding: 18px;
-}
-
-/* ---------------- Internal pages ---------- */
-/* FIX: pages not respecting left margin */
-.page-main{
-  width: min(1200px, calc(100% - (2 * var(--gutter))));
+.divider{
   margin: 0 auto;
-  padding: 96px 0 72px; /* top already includes header clearance */
-}
-
-/* Make each internal section "feel" like the homepage container */
-.page-main > section,
-.page-main > .page-section,
-.page-main > .page-hero{
-  width: 100%;
-  margin: 0 auto;
-}
-
-/* page hero */
-.page-hero{
-  max-width: 720px;
-  margin-bottom: 40px;
-}
-.page-hero h1{
-  font-size: 2.2rem;
-  margin: 0 0 12px;
-  text-transform: uppercase;
-  letter-spacing: .12em;
-}
-.page-hero p{
-  color: #cfcfcf;
-  line-height: 1.7;
-  margin: 0;
-}
-
-/* page sections */
-.page-section{
-  padding: 0;
-  margin-top: 44px;
-}
-.page-section + .page-section{
-  border-top: var(--divider);
-  padding-top: 44px;
-}
-
-.page-section h2{
-  font-size: 1.25rem;
-  text-transform: uppercase;
-  letter-spacing: .12em;
-  margin: 0 0 12px;
-}
-.page-section p{
-  color: #d0d0d0;
-  line-height: 1.7;
-}
-
-/* ---------------- Forms ------------------ */
-.form-group label{
-  display:block;
-  font-size: .82rem;
-  text-transform: uppercase;
-  letter-spacing: .10em;
-  color: #d0d0d5;
-  margin-bottom: 8px;
-}
-
-input, select, textarea{
-  width: 100%;
-  background: var(--bg-elevated);
-  border: 1px solid rgba(255,255,255,.10);
-  color: var(--text);
-  padding: 12px 14px;
-  border-radius: 14px;
-  outline: none;
-}
-input:focus, select:focus, textarea:focus{
-  border-color: rgba(221,0,0,.60);
-  box-shadow: 0 0 0 2px rgba(221,0,0,.12);
-}
-
-/* ---------------- Footer ----------------- */
-.site-footer{
-  border-top: 1px solid rgba(255,255,255,.08);
-  padding: 18px var(--gutter) 28px;
-  text-align: center;
-  color: var(--muted);
-  font-size: .85rem;
-}
-.footer-inner{
-  width: min(1200px, calc(100% - (2 * var(--gutter))));
-  margin: 0 auto;
-  display:flex;
-  align-items:center;
-  justify-content: space-between;
-  gap: 18px;
-  padding: 14px 0;
-}
-@media (max-width: 700px){
-  .footer-inner{ flex-direction: column; align-items: flex-start; }
-}
-
-/* ---------------- Reduced Motion --------- */
-@media (prefers-reduced-motion: reduce){
-  *{ animation: none !important; transition: none !important; }
-}
-
-/* ===============================
-   PATCH ONLY: margins + dividers + header/hero gap
-   (no layout redesign)
-================================ */
-
-/* 1) Consistent page side margins across ALL pages */
-:root { --gutter: 24px; --max-width: 1120px; }
-
-.page-main,
-main,
-.section,
-.page-section,
-.section-inner,
-.container {
-  max-width: var(--max-width);
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: var(--gutter);
-  padding-right: var(--gutter);
-}
-
-/* 2) Dividers: make them clearly visible + consistent */
-.hr,
-.divider,
-.section-divider {
-  height: 1px;
-  border: 0;
-  width: 100%;
-  margin: 44px auto;
-  background: rgba(221, 0, 0, 0.55); /* your red, visible but not neon */
-}
-
-/* 3) Remove weird space above the hero (header offset bug) */
-.mh-header { margin: 0; }
-main { padding-top: 0; }
-.hero { margin-top: 0; }
-
-/* If your header is fixed/sticky, keep hero from hiding behind it */
-.mh-header.is-sticky,
-.mh-header.is-fixed,
-header.mh-header[style*="position: fixed"],
-header.mh-header[style*="position:sticky"] {
-  /* adjust if your header is taller/shorter */
-  + main { padding-top: 84px; } /* safe default */
-}
-
-/* Retainer Tiers: spacing + centered width (no layout redesign) */
-.retainer-grid{
-  display: flex;
-  flex-direction: column;
-  gap: 26px;                 /* this is your “space-around” between cards */
-  max-width: 980px;          /* keeps them from looking goofy wide */
-  margin: 0 auto;            /* centers the stack */
-  padding: 0;                /* prevents accidental extra left padding */
-}
-
-.retainer-card{
-  margin: 0;                 /* avoid double spacing if old margins exist */
-}
-
-/* Force HERO to be full-bleed even if main/container has a max-width */
-.hero {
-  width: 100vw;
-  max-width: none;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-}
-
-/* make sure the video fills the hero */
-.hero-video {
-  position: absolute;
-  inset: 0;
-}
-
-.hero-video video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.pill-grid > .card,
-.pill-grid > article,
-.pill-grid > div {
-  border-color: #DD0000;
-}
-
-/* Homepage About cards: force side-by-side on desktop */
-.section-about .pill-grid{
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  align-items: stretch;
-}
-
-/* Stack cleanly on smaller screens */
-@media (max-width: 960px){
-  .section-about .pill-grid{
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ================================
-   MIRRØHAUS: one border rule
-   ================================ */
-:root{
-  --mh-red: #DD0000;
-  --mh-divider: #DD0000; /* matches “thin but visible” */
-}
-
-/* Apply the same 1px red border to ALL card styles used across pages */
-:where(
-  .card,
-  .pill,
-  .pill-card,
-  .brand-card,
-  .retainer-card,
-  .service-card,
-  .form-card,
-  .mh-card
-){
-  border: 1px solid var(--mh-divider) !important;
-  border-radius: 18px;
-}
-
-/* Make dividers match the card border exactly */
-:where(.divider, .section-divider, hr){
-  border: 0;
-  height: 1px;
-  background: var(--mh-divider);
-  opacity: 1;
-}
-
-/* ================================
-   UNSTACK CARDS (desktop grid)
-   ================================ */
-
-/* Any wrapper that contains cards */
-:where(
-  .grid-3,
-  .pill-grid,
-  .brand-grid,
-  .services-grid,
-  .retainer-grid,
-  .cards-grid
-){
-  display: grid;
-  gap: 22px;
-  align-items: stretch;
-}
-
-/* Desktop: 3 across */
-@media (min-width: 980px){
-  :where(.grid-3, .pill-grid, .brand-grid, .services-grid, .cards-grid){
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  /* Retainer tiers usually look better 3-up too */
-  .retainer-grid{
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-}
-
-/* Tablet: 2 across */
-@media (min-width: 700px) and (max-width: 979px){
-  :where(.grid-3, .pill-grid, .brand-grid, .services-grid, .retainer-grid, .cards-grid){
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-/* Mobile: stack */
-@media (max-width: 699px){
-  :where(.grid-3, .pill-grid, .brand-grid, .services-grid, .retainer-grid, .cards-grid){
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Make sure cards don’t force weird widths */
-:where(.card, .pill, .brand-card, .retainer-card, .service-card){
-  width: 100%;
-  max-width: none;
-  margin: 0;
-}
-
-/* Divider spacing */
-.divider,
-.section-divider,
-hr {
-  margin: 42px 0;   /* increase/decrease to taste */
-}
-
-.page-section{
-  padding-bottom: 42px;
+  width: min(calc(100% - 48px), var(--max-width));
+  height: var(--mh-divider-width);
+  background: var(--mh-divider-color);
 }
