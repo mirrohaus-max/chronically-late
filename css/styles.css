@@ -676,3 +676,54 @@ header.mh-header[style*="position:sticky"] {
   background: var(--mh-divider);
   opacity: 1;
 }
+
+/* ================================
+   UNSTACK CARDS (desktop grid)
+   ================================ */
+
+/* Any wrapper that contains cards */
+:where(
+  .grid-3,
+  .pill-grid,
+  .brand-grid,
+  .services-grid,
+  .retainer-grid,
+  .cards-grid
+){
+  display: grid;
+  gap: 22px;
+  align-items: stretch;
+}
+
+/* Desktop: 3 across */
+@media (min-width: 980px){
+  :where(.grid-3, .pill-grid, .brand-grid, .services-grid, .cards-grid){
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* Retainer tiers usually look better 3-up too */
+  .retainer-grid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Tablet: 2 across */
+@media (min-width: 700px) and (max-width: 979px){
+  :where(.grid-3, .pill-grid, .brand-grid, .services-grid, .retainer-grid, .cards-grid){
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile: stack */
+@media (max-width: 699px){
+  :where(.grid-3, .pill-grid, .brand-grid, .services-grid, .retainer-grid, .cards-grid){
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Make sure cards don’t force weird widths */
+:where(.card, .pill, .brand-card, .retainer-card, .service-card){
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
