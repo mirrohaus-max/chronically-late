@@ -26,6 +26,14 @@
   --noise-url: url("../assets/texture-noise.png");
 }
 
+:root{
+  /* Match the logo outline */
+  --mh-red: #DD0000;
+
+  /* Match the logo outline thickness */
+  --mh-line: 2px;  /* if your logo outline looks thicker, bump to 3px */
+}
+
 /* ---------- Reset-ish base */
 *, *::before, *::after { box-sizing: border-box; }
 html, body { margin: 0; padding: 0; }
@@ -947,4 +955,65 @@ a { color: inherit; text-decoration: none; }
   width: min(calc(100% - 48px), var(--max-width));
   height: var(--mh-divider-width);
   background: var(--mh-divider-color);
+}
+
+/* ================================
+   MIRRØHAUS RED LINE SYSTEM
+   (forces all red lines to match logo outline)
+================================ */
+
+/* 1) Footer divider bar */
+.divider-red{
+  height: var(--mh-line);
+  width: 100%;
+  background: var(--mh-red);
+  opacity: 1;
+}
+
+/* 2) Section dividers (your HTML uses .has-divider-top) */
+.section.has-divider-top{
+  border-top: var(--mh-line) solid var(--mh-red);
+}
+
+/* If you also have other divider helpers on other pages */
+.has-divider-top{
+  border-top: var(--mh-line) solid var(--mh-red);
+}
+
+/* 3) Any <hr> or divider utility classes (safe coverage) */
+hr,
+.divider,
+.section-divider,
+.mh-divider{
+  border: 0;
+  height: var(--mh-line);
+  width: 100%;
+  background: var(--mh-red);
+  opacity: 1;
+}
+
+/* 4) Card outlines: make them all match the logo outline */
+.contact-card,
+.brand-card,
+.work-card,
+.founder-card,
+.pill{
+  border: var(--mh-line) solid var(--mh-red);
+}
+
+/* 5) Prevent “faded red” overrides */
+.divider-red,
+.section.has-divider-top,
+.has-divider-top,
+hr,
+.divider,
+.section-divider,
+.mh-divider,
+.contact-card,
+.brand-card,
+.work-card,
+.founder-card,
+.pill{
+  opacity: 1 !important;
+  filter: none !important;
 }
