@@ -1017,3 +1017,7 @@ hr,
   opacity: 1 !important;
   filter: none !important;
 }
+
+.section.has-divider-top{
+  border-top: var(--mh-divider-width) solid var(--mh-divider-color) !important;
+}
