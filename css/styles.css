@@ -896,3 +896,8 @@ button{
 input, textarea, select{
   min-width: 0;
 }
+
+/* SECTION DIVIDERS — consistent across all pages */
+.section.has-divider-top{
+  border-top: var(--mh-divider-width) solid var(--mh-divider-color);
+}
