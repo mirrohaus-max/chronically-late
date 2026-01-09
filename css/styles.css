@@ -800,3 +800,99 @@ hr,
    FIX: Unified card system + Careers form uses it correctly
    End of file
    ========================================================= */
+
+/* =========================================
+   GLOBAL FORM RESET — fixes ALL forms
+   (contact, services, careers, modal, etc.)
+========================================= */
+
+:root{
+  --mh-red: #DD0000;
+  --mh-line: 2px;
+  --mh-divider-width: var(--mh-line);
+  --mh-divider-color: var(--mh-red);
+
+  --field-bg: rgba(3, 6, 11, 0.72);
+  --field-border: rgba(255,255,255,0.14);
+  --field-radius: 14px;
+  --field-pad-y: 12px;
+  --field-pad-x: 14px;
+}
+
+/* Any form wrapper gets consistent spacing */
+form{
+  display: grid;
+  gap: 14px;
+}
+
+/* Labels don’t collapse */
+label{
+  display: grid;
+  gap: 8px;
+  color: rgba(255,255,255,0.78);
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+/* ALL inputs/textareas/selects (site-wide) */
+input,
+textarea,
+select{
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--field-bg);
+  color: #F7F7F7;
+  border: 1px solid var(--field-border);
+  border-radius: var(--field-radius);
+  padding: var(--field-pad-y) var(--field-pad-x);
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  font: inherit;
+}
+
+/* Textareas resize nicely */
+textarea{
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* Focus state */
+input:focus,
+textarea:focus,
+select:focus{
+  border-color: var(--mh-divider-color);
+  box-shadow: 0 0 0 2px rgba(221,0,0,0.22);
+}
+
+/* Buttons don’t get weird browser defaults */
+button{
+  font: inherit;
+}
+
+/* Form cards / panels */
+.contact-card,
+.form-card,
+.card-form,
+.mh-card{
+  border: var(--mh-divider-width) solid var(--mh-divider-color);
+  border-radius: 18px;
+  padding: 18px;
+  background: rgba(5, 8, 18, 0.75);
+}
+
+/* Modal form rows layout (your Start Project modal uses these) */
+.contact-form .form-row{
+  display: grid;
+  gap: 12px;
+}
+@media (min-width: 720px){
+  .contact-form .form-row{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Prevent flex parents from squeezing fields */
+input, textarea, select{
+  min-width: 0;
+}
