@@ -901,3 +901,52 @@ input, textarea, select{
 .section.has-divider-top{
   border-top: var(--mh-divider-width) solid var(--mh-divider-color);
 }
+
+/* =========================================
+   WHAT WE DO — CARD LAYOUT
+========================================= */
+
+.section-intro{
+  max-width: 720px;
+  margin-bottom: 32px;
+  color: rgba(255,255,255,0.78);
+}
+
+/* Grid */
+.what-we-do-grid{
+  display: grid;
+  gap: 22px;
+}
+
+@media (min-width: 900px){
+  .what-we-do-grid{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Cards */
+.wwd-card{
+  background: rgba(5, 8, 18, 0.75);
+  border: var(--mh-divider-width) solid var(--mh-divider-color);
+  border-radius: 18px;
+  padding: 26px 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wwd-card h3{
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.wwd-card p{
+  color: rgba(255,255,255,0.78);
+  line-height: 1.55;
+}
+
+/* Subtle lift on hover (desktop only) */
+@media (hover: hover){
+  .wwd-card:hover{
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+  }
+}
