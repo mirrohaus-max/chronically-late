@@ -950,3 +950,124 @@ input, textarea, select{
     box-shadow: 0 12px 32px rgba(0,0,0,0.45);
   }
 }
+
+/* =========================================
+   BRANDS PAGE — BREATHING ROOM LAYOUT
+========================================= */
+
+.brands-hero-inner{
+  padding-top: 44px;
+  padding-bottom: 10px;
+}
+
+.brands-title{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.brands-subtitle{
+  max-width: 760px;
+  color: rgba(255,255,255,0.78);
+}
+
+/* Main brand panels */
+.brand-panel{
+  background: rgba(5, 8, 18, 0.75);
+  border: var(--mh-divider-width) solid var(--mh-divider-color);
+  border-radius: 18px;
+  padding: 28px;
+  margin: 26px 0;
+}
+
+.brand-panel-top{
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 18px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+/* Logo placeholder (you’ll drop logos in later) */
+.brand-logo-slot{
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(3, 6, 11, 0.5);
+}
+
+/* Text */
+.brand-name{
+  margin: 0;
+}
+
+.brand-tags{
+  margin: 6px 0 0;
+  color: rgba(255,255,255,0.75);
+  font-size: 14px;
+  letter-spacing: 0.02em;
+}
+
+.brand-desc{
+  color: rgba(255,255,255,0.78);
+  line-height: 1.55;
+  margin: 14px 0 16px;
+  max-width: 820px;
+}
+
+/* Focus / Vibe pills */
+.brand-meta-grid{
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr;
+  margin-top: 10px;
+  margin-bottom: 18px;
+}
+
+@media (min-width: 720px){
+  .brand-meta-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.brand-meta{
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(3, 6, 11, 0.48);
+  border-radius: 16px;
+  padding: 14px 16px;
+}
+
+.brand-meta-label{
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 6px;
+}
+
+.brand-meta-value{
+  color: rgba(255,255,255,0.85);
+}
+
+/* Actions */
+.brand-actions{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Disabled / in development styling */
+.brand-panel--disabled{
+  opacity: 0.9;
+}
+
+.is-disabled{
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* CTA section spacing */
+.brands-cta-inner{
+  padding-top: 10px;
+  padding-bottom: 26px;
+}
